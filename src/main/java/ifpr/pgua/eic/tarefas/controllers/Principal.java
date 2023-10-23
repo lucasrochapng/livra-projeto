@@ -23,7 +23,7 @@ public class Principal {
 
     @FXML
     void entrar(ActionEvent event) {
-
+        App.pushScreen("HOME");
     }
 
     @FXML
