@@ -32,14 +32,14 @@
       </HBox>
       <VBox alignment="TOP_CENTER" prefHeight="297.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <TextField promptText="Nome de Usuário" />
-            <PasswordField promptText="Senha" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="265.0" text="ENTRAR" />
-            <Label text="ou" />
+            <TextField fx:id="tfNomeUsuario" promptText="Nome de Usuário" />
+            <PasswordField fx:id="pfSenha" promptText="Senha" />
+            <Button mnemonicParsing="false" onAction="#entrar" prefHeight="25.0" prefWidth="265.0" text="ENTRAR" />
+            <Label fx:id="lbOu" text="ou" />
             <HBox alignment="CENTER" prefHeight="24.0" prefWidth="260.0" spacing="5.0">
                <children>
-                  <Label text="Não tem Registro?" />
-                  <Button mnemonicParsing="false" text="Registre-se" />
+                  <Label fx:id="lbRegistro" text="Não tem Registro?" />
+                  <Button mnemonicParsing="false" onAction="#registrar" text="Registre-se" />
                </children>
             </HBox>
          </children>

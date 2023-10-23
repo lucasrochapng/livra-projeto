@@ -1,5 +1,6 @@
 package ifpr.pgua.eic.tarefas;
 
+import ifpr.pgua.eic.tarefas.controllers.CadastrarUsuario;
 import ifpr.pgua.eic.tarefas.controllers.CadastroCategoria;
 import ifpr.pgua.eic.tarefas.controllers.CadastroTarefa;
 import ifpr.pgua.eic.tarefas.controllers.ListarCategoria;
@@ -40,12 +41,13 @@ public class App extends BaseAppNavigator {
     @Override
     public String getAppTitle() {
         // TODO Auto-generated method stub
-        return "Coleção de Músicas";
+        return "Livra";
     }
 
     @Override
     public void registrarTelas() {
         registraTela("PRINCIPAL", new ScreenRegistryFXML(App.class,"principal.fxml",o->new Principal()));
+        registraTela("CADASTRARUSUARIO", new ScreenRegistryFXML(App.class,"cadastrar_usuario.fxml",o->new CadastrarUsuario()));
         registraTela("CADASTRARCATEGORIA", new ScreenRegistryFXML(App.class,"cadastrar_categoria.fxml",o->new CadastroCategoria(repositorioCategoria)));
         registraTela("CADASTRARTAREFA", new ScreenRegistryFXML(App.class,"cadastrar_tarefa.fxml",o->new CadastroTarefa(repositorioTarefa, repositorioCategoria)));
         registraTela("LISTARCATEGORIA", new ScreenRegistryFXML(App.class, "listar_categoria.fxml", o->new ListarCategoria(repositorioCategoria)));
