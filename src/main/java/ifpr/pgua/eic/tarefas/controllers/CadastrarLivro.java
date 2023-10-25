@@ -5,22 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
-public class Home {
+public class CadastrarLivro {
 
     @FXML
-    private Label lbBiblioteca;
+    private Label lbLivros;
 
     @FXML
     private ListView<?> lstLivros;
-
-    @FXML
-    private TextArea taDetalhes;
-
-    @FXML
-    private TextField tfProcureLivros;
 
     @FXML
     void abrirEditar(ActionEvent event) {
@@ -29,23 +21,27 @@ public class Home {
 
     @FXML
     void abrirHome(ActionEvent event) {
-
+        App.pushScreen("HOME");
     }
 
     @FXML
     void abrirLivros(ActionEvent event) {
-        App.pushScreen("CADASTRARLIVRO");
-    }
-
-    @FXML
-    void procurarLivro(ActionEvent event) {
 
     }
 
     @FXML
-    void voltar(ActionEvent event) {
-        App.popScreen();
+    void adicionarLivro(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deletarLivro(ActionEvent event) {
+
+    }
+
+    @FXML
+    void editarLivro(ActionEvent event) {
+
     }
 
 }
-
