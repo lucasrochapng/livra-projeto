@@ -4,23 +4,27 @@ import ifpr.pgua.eic.tarefas.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class Home {
+public class EditarUsuario {
 
     @FXML
-    private Label lbBiblioteca;
+    private Label lbEditar;
 
     @FXML
-    private ListView<?> lstLivros;
+    private TextField tfNovaIdade;
 
     @FXML
-    private TextArea taDetalhes;
+    private TextField tfNovaSenha;
 
     @FXML
-    private TextField tfProcureLivros;
+    private TextField tfNovoNome;
+
+    @FXML
+    private TextField tfNovoNomeUsuario;
+
+    @FXML
+    private TextField tfNovoTelefone;
 
     @FXML
     void abrirEditar(ActionEvent event) {
@@ -29,7 +33,7 @@ public class Home {
 
     @FXML
     void abrirHome(ActionEvent event) {
-
+        App.pushScreen("HOME");
     }
 
     @FXML
@@ -38,14 +42,8 @@ public class Home {
     }
 
     @FXML
-    void procurarLivro(ActionEvent event) {
+    void salvar(ActionEvent event) {
 
-    }
-
-    @FXML
-    void voltar(ActionEvent event) {
-        App.pushScreen("PRINCIPAL");
     }
 
 }
-

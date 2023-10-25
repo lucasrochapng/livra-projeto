@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.EditarUsuario">
+   <children>
+      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="280.0">
+         <children>
+            <Label fx:id="lbEditar" text="EDITAR INFORMAÇÕES" />
+         </children>
+      </HBox>
+      <TextField fx:id="tfNovoNome" promptText="novo nome" />
+      <TextField fx:id="tfNovoNomeUsuario" promptText="novo nome de usuário" />
+      <TextField fx:id="tfNovaSenha" promptText="nova senha" />
+      <TextField fx:id="tfNovoTelefone" promptText="novo telefone" />
+      <TextField fx:id="tfNovaIdade" promptText="nova idade" />
+      <Button mnemonicParsing="false" onAction="#salvar" prefHeight="25.0" prefWidth="309.0" text="SALVAR ALTERAÇÕES" />
+      <HBox prefHeight="212.0" prefWidth="280.0" />
+      <HBox alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#abrirHome" text="Home" />
+            <Button mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />
+            <Button mnemonicParsing="false" onAction="#abrirEditar" text="Editar" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

@@ -16,7 +16,7 @@ public class CadastrarLivro {
 
     @FXML
     void abrirEditar(ActionEvent event) {
-
+        App.pushScreen("EDITARUSUARIO");
     }
 
     @FXML
