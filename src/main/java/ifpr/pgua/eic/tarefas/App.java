@@ -1,9 +1,11 @@
 package ifpr.pgua.eic.tarefas;
 
+import ifpr.pgua.eic.tarefas.controllers.ListarLivros;
 import ifpr.pgua.eic.tarefas.controllers.CadastrarLivro;
 import ifpr.pgua.eic.tarefas.controllers.CadastrarUsuario;
 import ifpr.pgua.eic.tarefas.controllers.CadastroCategoria;
 import ifpr.pgua.eic.tarefas.controllers.CadastroTarefa;
+import ifpr.pgua.eic.tarefas.controllers.EditarLivro;
 import ifpr.pgua.eic.tarefas.controllers.EditarUsuario;
 import ifpr.pgua.eic.tarefas.controllers.Home;
 import ifpr.pgua.eic.tarefas.controllers.ListarCategoria;
@@ -52,7 +54,9 @@ public class App extends BaseAppNavigator {
         registraTela("PRINCIPAL", new ScreenRegistryFXML(App.class,"principal.fxml",o->new Principal()));
         registraTela("CADASTRARUSUARIO", new ScreenRegistryFXML(App.class,"cadastrar_usuario.fxml",o->new CadastrarUsuario()));
         registraTela("HOME", new ScreenRegistryFXML(App.class,"home.fxml",o->new Home()));
+        registraTela("LISTARLIVROS", new ScreenRegistryFXML(App.class,"listar_livros.fxml",o->new ListarLivros()));
         registraTela("CADASTRARLIVRO", new ScreenRegistryFXML(App.class,"cadastrar_livro.fxml",o->new CadastrarLivro()));
+        registraTela("EDITARLIVRO", new ScreenRegistryFXML(App.class,"editar_livro.fxml",o->new EditarLivro()));
         registraTela("EDITARUSUARIO", new ScreenRegistryFXML(App.class, "editar_usuario.fxml", o->new EditarUsuario()));
         registraTela("CADASTRARCATEGORIA", new ScreenRegistryFXML(App.class,"cadastrar_categoria.fxml",o->new CadastroCategoria(repositorioCategoria)));
         registraTela("CADASTRARTAREFA", new ScreenRegistryFXML(App.class,"cadastrar_tarefa.fxml",o->new CadastroTarefa(repositorioTarefa, repositorioCategoria)));

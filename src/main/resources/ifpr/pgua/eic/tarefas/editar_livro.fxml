@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.CadastrarLivro">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.EditarLivro">
    <padding>
       <Insets left="10.0" right="10.0" top="10.0" />
    </padding>
@@ -19,13 +19,13 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="101.0" prefWidth="280.0">
          <children>
-            <Label text="CADASTRE SEU LIVRO PARA TROCA" />
+            <Label fx:id="lbInformacoes" text="EDITAR INFORMAÇÕES DO LIVRO" />
          </children>
       </HBox>
       <TextField fx:id="tfTitulo" promptText="Título" />
       <TextField fx:id="tfAutor" promptText="Autor" />
       <TextField fx:id="tfGenero" promptText="Gênero" />
       <TextField fx:id="tfDescricao" alignment="TOP_LEFT" prefHeight="122.0" prefWidth="280.0" promptText="Descrição" />
-      <Button mnemonicParsing="false" onAction="#cadastrarLivro" prefHeight="25.0" prefWidth="329.0" text="CADASTRAR LIVRO" />
+      <Button mnemonicParsing="false" onAction="#editarLivro" prefHeight="25.0" prefWidth="329.0" text="EDITAR LIVRO" />
    </children>
 </VBox>

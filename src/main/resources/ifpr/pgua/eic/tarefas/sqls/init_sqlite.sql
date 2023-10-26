@@ -12,3 +12,13 @@ CREATE TABLE IF NOT EXISTS tarefa(
     categoriaId int not null,
     foreign key (categoriaId) references categoria(id)
 );
+
+CREATE TABLE IF NOT EXISTS usuarios(
+    id int AUTO_INCREMENT not null,
+    nome varchar(255) not null,
+    nomeUsuario varchar(255) not null,
+    senha varchar(255) not null,
+    telefone int not null,
+    idade int not null,
+    PRIMARY KEY(id)
+);

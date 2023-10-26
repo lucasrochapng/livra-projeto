@@ -38,7 +38,7 @@ public class EditarUsuario {
 
     @FXML
     void abrirLivros(ActionEvent event) {
-        App.pushScreen("CADASTRARLIVRO");
+        App.pushScreen("LISTARLIVROS");
     }
 
     @FXML
