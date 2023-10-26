@@ -15,9 +15,12 @@ import ifpr.pgua.eic.tarefas.model.daos.CategoriaDAO;
 import ifpr.pgua.eic.tarefas.model.daos.FabricaConexoes;
 import ifpr.pgua.eic.tarefas.model.daos.JDBCCategoriaDAO;
 import ifpr.pgua.eic.tarefas.model.daos.JDBCTarefaDAO;
+import ifpr.pgua.eic.tarefas.model.daos.JDBCUsuarioDAO;
 import ifpr.pgua.eic.tarefas.model.daos.TarefaDAO;
+import ifpr.pgua.eic.tarefas.model.daos.UsuarioDAO;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioCategoria;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioTarefa;
+import ifpr.pgua.eic.tarefas.model.repositories.RepositorioUsuario;
 import io.github.hugoperlin.navigatorfx.BaseAppNavigator;
 import io.github.hugoperlin.navigatorfx.ScreenRegistryFXML;
 
@@ -25,6 +28,9 @@ import io.github.hugoperlin.navigatorfx.ScreenRegistryFXML;
  * JavaFX App
  */
 public class App extends BaseAppNavigator {
+
+    private UsuarioDAO usuarioDAO = new JDBCUsuarioDAO(FabricaConexoes.getInstance());
+    private RepositorioUsuario repositorioUsuario = new RepositorioUsuario(usuarioDAO);
 
     private CategoriaDAO categoriaDAO = new JDBCCategoriaDAO(FabricaConexoes.getInstance());
     private RepositorioCategoria repositorioCategoria = new RepositorioCategoria(categoriaDAO);
@@ -52,7 +58,7 @@ public class App extends BaseAppNavigator {
     @Override
     public void registrarTelas() {
         registraTela("PRINCIPAL", new ScreenRegistryFXML(App.class,"principal.fxml",o->new Principal()));
-        registraTela("CADASTRARUSUARIO", new ScreenRegistryFXML(App.class,"cadastrar_usuario.fxml",o->new CadastrarUsuario()));
+        registraTela("CADASTRARUSUARIO", new ScreenRegistryFXML(App.class,"cadastrar_usuario.fxml",o->new CadastrarUsuario(repositorioUsuario)));
         registraTela("HOME", new ScreenRegistryFXML(App.class,"home.fxml",o->new Home()));
         registraTela("LISTARLIVROS", new ScreenRegistryFXML(App.class,"listar_livros.fxml",o->new ListarLivros()));
         registraTela("CADASTRARLIVRO", new ScreenRegistryFXML(App.class,"cadastrar_livro.fxml",o->new CadastrarLivro()));
