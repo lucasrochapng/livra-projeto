@@ -18,14 +18,19 @@ public class RepositorioAutor {
         this.dao = dao;
     }
 
-    public Resultado criarAutor(String nome){
-        if(nome.isEmpty() || nome.isBlank()){
-            return Resultado.erro("Nome inválido!");
-        }
+    public String cadastrarAutor(String nome){
 
         Autor autor = new Autor(nome);
+        Resultado resultado = dao.criar(autor);
+        return resultado.getMsg();
+    }
 
-        return dao.criar(autor);
+    public String alterarAutor(int id, String nome){
+        Autor novo = new Autor(id, nome);
+
+        Resultado resultado = dao.atualizar(id, novo);
+
+        return resultado.getMsg();
     }
 
     public Resultado listarAutor(){

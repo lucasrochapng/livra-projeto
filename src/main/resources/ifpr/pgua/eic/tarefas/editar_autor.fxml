@@ -23,6 +23,6 @@
          </children>
       </HBox>
       <TextField fx:id="tfAutor" promptText="Nome" />
-      <Button mnemonicParsing="false" onAction="#editarAutor" prefHeight="25.0" prefWidth="329.0" text="EDITAR AUTOR" />
+      <Button fx:id="btEditar" mnemonicParsing="false" onAction="#editarAutor" prefHeight="25.0" prefWidth="329.0" text="EDITAR AUTOR" />
    </children>
 </VBox>

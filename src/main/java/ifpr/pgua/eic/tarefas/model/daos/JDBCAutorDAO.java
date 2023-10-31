@@ -18,7 +18,7 @@ public class JDBCAutorDAO implements AutorDAO {
     private static final String SELECTSQL = "SELECT * FROM autores";
     private static final String SEARCHSQL = "SELECT * FROM autores WHERE id = ?";
 
-    FabricaConexoes fabrica;
+    private FabricaConexoes fabrica;
 
     public JDBCAutorDAO(FabricaConexoes fabrica){
         this.fabrica = fabrica;
@@ -27,7 +27,7 @@ public class JDBCAutorDAO implements AutorDAO {
     @Override
     public Resultado criar(Autor autor) {
         
-        try(Connection con = fabrica.getConnection()){
+        try(Connection con = fabrica.getConnection();){
 
             PreparedStatement pstm = con.prepareStatement(INSERTSQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -36,10 +36,13 @@ public class JDBCAutorDAO implements AutorDAO {
             int ret = pstm.executeUpdate();
             
             if(ret == 1){
-                int id = DBUtils.getLastId(pstm);
 
+                System.out.println(con.getMetaData().getDatabaseProductName());
+
+                int id = DBUtils.getLastId(pstm);
                 autor.setId(id);
 
+                System.out.println(autor);
                 return Resultado.sucesso("Autor cadastrado!", autor);
             }
             return Resultado.erro("Erro desconhecido");
@@ -64,7 +67,6 @@ public class JDBCAutorDAO implements AutorDAO {
                 String nome = rs.getString("nome");
                 
                 Autor autor = new Autor(nome);
-                autor.setId(id);
                 autores.add(autor);
             }
 
@@ -102,9 +104,22 @@ public class JDBCAutorDAO implements AutorDAO {
     }
 
     @Override
-    public Resultado editar(int id, Autor novo) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'editar'");
+    public Resultado atualizar(int id, Autor novo) {
+        try(Connection con = fabrica.getConnection();) {
+            PreparedStatement pstm = con.prepareStatement("UPDATE autores SET nome=? WHERE id=?");
+
+            pstm.setString(1, novo.getNome());
+            pstm.setInt(2, id);
+
+            int ret = pstm.executeUpdate();
+
+            if(ret == 1){
+                return Resultado.sucesso("Autor atualizado", novo);
+            }
+            return Resultado.erro("Erro não identificado!");
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
     }
 
     @Override

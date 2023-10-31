@@ -21,12 +21,11 @@ import javafx.scene.control.Alert.AlertType;
 public class ListarAutores implements Initializable{
 
     @FXML
-    private Label lbAutores;
-
-    @FXML
     private ListView<Autor> lstAutores;
 
     private RepositorioAutor repositorio;
+
+    private Autor selecionado;
 
     public ListarAutores(RepositorioAutor repositorio){
         this.repositorio = repositorio;
@@ -63,9 +62,20 @@ public class ListarAutores implements Initializable{
     }
 
     @FXML
-    void editarAutor(ActionEvent event) {
-        App.pushScreen("EDITARAUTOR");
+    private void selecionar(){
+        selecionado = lstAutores.getSelectionModel().getSelectedItem();
     }
+
+    @FXML
+    private void editarAutor(){
+        if(selecionado != null) {
+            App.pushScreen("CADASTRARAUTOR", o->new CadastrarAutor(repositorio, selecionado));
+        }
+    }
+
+    /*
+    
+     */
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
