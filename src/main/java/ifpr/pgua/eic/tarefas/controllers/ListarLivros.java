@@ -15,6 +15,11 @@ public class ListarLivros {
     private ListView<?> lstLivros;
 
     @FXML
+    void abrirAutores(ActionEvent event) {
+        App.pushScreen("LISTARAUTORES");
+    }
+
+    @FXML
     void abrirEditar(ActionEvent event) {
         App.pushScreen("EDITARUSUARIO");
     }

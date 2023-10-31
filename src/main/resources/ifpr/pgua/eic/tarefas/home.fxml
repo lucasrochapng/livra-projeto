@@ -35,6 +35,7 @@
          <children>
             <Button mnemonicParsing="false" onAction="#abrirHome" text="Home" />
             <Button mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />
+            <Button mnemonicParsing="false" onAction="#abrirAutores" text="Autores" />
             <Button mnemonicParsing="false" onAction="#abrirEditar" text="Editar" />
          </children>
          <padding>

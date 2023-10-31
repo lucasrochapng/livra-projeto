@@ -27,6 +27,11 @@ public class EditarUsuario {
     private TextField tfNovoTelefone;
 
     @FXML
+    void abrirAutores(ActionEvent event) {
+        App.pushScreen("LISTARAUTORES");
+    }
+
+    @FXML
     void abrirEditar(ActionEvent event) {
         App.pushScreen("EDITARUSUARIO");
     }

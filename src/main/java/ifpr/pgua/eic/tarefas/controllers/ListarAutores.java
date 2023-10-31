@@ -5,26 +5,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
-public class Home {
+public class ListarAutores {
 
     @FXML
-    private Label lbBiblioteca;
+    private Label lbAutores;
 
     @FXML
-    private ListView<?> lstLivros;
-
-    @FXML
-    private TextArea taDetalhes;
-
-    @FXML
-    private TextField tfProcureLivros;
+    private ListView<?> lstAutores;
 
     @FXML
     void abrirAutores(ActionEvent event) {
-        App.pushScreen("LISTARAUTORES");
+
     }
 
     @FXML
@@ -34,7 +26,7 @@ public class Home {
 
     @FXML
     void abrirHome(ActionEvent event) {
-
+        App.pushScreen("HOME");
     }
 
     @FXML
@@ -43,14 +35,18 @@ public class Home {
     }
 
     @FXML
-    void procurarLivro(ActionEvent event) {
+    void adicionarAutor(ActionEvent event) {
+        App.pushScreen("CADASTRARAUTOR");
+    }
+
+    @FXML
+    void deletarAutor(ActionEvent event) {
 
     }
 
     @FXML
-    void voltar(ActionEvent event) {
-        App.pushScreen("PRINCIPAL");
+    void editarAutor(ActionEvent event) {
+        App.pushScreen("EDITARAUTOR");
     }
 
 }
-
