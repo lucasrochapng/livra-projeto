@@ -22,3 +22,9 @@ CREATE TABLE IF NOT EXISTS usuarios(
     idade int not null,
     PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS autores(
+    id int AUTO_INCREMENT not null,
+    nome varchar(255) not null,
+    PRIMARY KEY(id)
+);
