@@ -18,7 +18,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="101.0" prefWidth="280.0" />
       <TextField fx:id="tfNome" promptText="Nome" />
-      <TextField fx:id="tfId" />
+      <TextField fx:id="tfId" editable="false" />
       <Button fx:id="btAcao" mnemonicParsing="false" onAction="#cadastrarAutor" prefHeight="25.0" prefWidth="329.0" text="CONCLUIR" />
    </children>
 </VBox>

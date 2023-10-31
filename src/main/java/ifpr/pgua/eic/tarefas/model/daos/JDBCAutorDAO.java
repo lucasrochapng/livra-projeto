@@ -66,7 +66,7 @@ public class JDBCAutorDAO implements AutorDAO {
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 
-                Autor autor = new Autor(nome);
+                Autor autor = new Autor(id, nome);
                 autores.add(autor);
             }
 

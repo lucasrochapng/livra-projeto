@@ -6,7 +6,6 @@ import ifpr.pgua.eic.tarefas.controllers.CadastrarLivro;
 import ifpr.pgua.eic.tarefas.controllers.CadastrarUsuario;
 import ifpr.pgua.eic.tarefas.controllers.CadastroCategoria;
 import ifpr.pgua.eic.tarefas.controllers.CadastroTarefa;
-import ifpr.pgua.eic.tarefas.controllers.EditarAutor;
 import ifpr.pgua.eic.tarefas.controllers.EditarLivro;
 import ifpr.pgua.eic.tarefas.controllers.EditarUsuario;
 import ifpr.pgua.eic.tarefas.controllers.Home;
@@ -78,8 +77,7 @@ public class App extends BaseAppNavigator {
 
         registraTela("LISTARAUTORES", new ScreenRegistryFXML(App.class, "listar_autores.fxml", o->new ListarAutores(repositorioAutor)));
         registraTela("CADASTRARAUTOR", new ScreenRegistryFXML(App.class, "cadastrar_autor.fxml", o->new CadastrarAutor(repositorioAutor)));
-        registraTela("EDITARAUTOR", new ScreenRegistryFXML(App.class, "editar_autor.fxml", o->new EditarAutor()));
-
+        
         registraTela("EDITARUSUARIO", new ScreenRegistryFXML(App.class, "editar_usuario.fxml", o->new EditarUsuario()));
 
         registraTela("CADASTRARCATEGORIA", new ScreenRegistryFXML(App.class,"cadastrar_categoria.fxml",o->new CadastroCategoria(repositorioCategoria)));
