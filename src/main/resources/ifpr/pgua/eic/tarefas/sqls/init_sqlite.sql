@@ -28,3 +28,13 @@ CREATE TABLE IF NOT EXISTS autores(
     nome varchar(255) not null,
     PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS livros(
+    id int AUTO_INCREMENT not null,
+    titulo varchar(255) not null,
+    autorId int not null,
+    genero varchar(255) not null,
+    descricao varchar(255) not null,
+    PRIMARY KEY(id),
+    foreign key(autorId) references autores(id)
+);

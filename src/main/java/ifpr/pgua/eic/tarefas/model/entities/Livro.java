@@ -4,11 +4,11 @@ public class Livro {
     
     private int id;
     private String titulo;
-    private String autor;
+    private Autor autor;
     private String genero;
     private String descricao;
 
-    public Livro(int id, String titulo, String autor, String genero, String descricao){
+    public Livro(int id, String titulo, Autor autor, String genero, String descricao){
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -16,7 +16,7 @@ public class Livro {
         this.descricao = descricao;
     }
 
-    public Livro(String titulo, String autor, String genero, String descricao){
+    public Livro(String titulo, Autor autor, String genero, String descricao){
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
@@ -37,10 +37,10 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public String getAutor() {
+    public Autor getAutor() {
         return autor;
     }
-    public void setAutor(String autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 

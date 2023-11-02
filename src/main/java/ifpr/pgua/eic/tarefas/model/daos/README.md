@@ -1,1 +1,0 @@
-Neste pacote serão criadas as interfaces e classes de DAOs.

@@ -4,27 +4,20 @@ import ifpr.pgua.eic.tarefas.controllers.ListarLivros;
 import ifpr.pgua.eic.tarefas.controllers.CadastrarAutor;
 import ifpr.pgua.eic.tarefas.controllers.CadastrarLivro;
 import ifpr.pgua.eic.tarefas.controllers.CadastrarUsuario;
-import ifpr.pgua.eic.tarefas.controllers.CadastroCategoria;
-import ifpr.pgua.eic.tarefas.controllers.CadastroTarefa;
 import ifpr.pgua.eic.tarefas.controllers.EditarLivro;
 import ifpr.pgua.eic.tarefas.controllers.EditarUsuario;
 import ifpr.pgua.eic.tarefas.controllers.Home;
 import ifpr.pgua.eic.tarefas.controllers.ListarAutores;
-import ifpr.pgua.eic.tarefas.controllers.ListarCategoria;
-import ifpr.pgua.eic.tarefas.controllers.ListarTarefa;
 import ifpr.pgua.eic.tarefas.controllers.Principal;
 import ifpr.pgua.eic.tarefas.model.daos.AutorDAO;
-import ifpr.pgua.eic.tarefas.model.daos.CategoriaDAO;
 import ifpr.pgua.eic.tarefas.model.daos.FabricaConexoes;
 import ifpr.pgua.eic.tarefas.model.daos.JDBCAutorDAO;
-import ifpr.pgua.eic.tarefas.model.daos.JDBCCategoriaDAO;
-import ifpr.pgua.eic.tarefas.model.daos.JDBCTarefaDAO;
+import ifpr.pgua.eic.tarefas.model.daos.JDBCLivroDAO;
 import ifpr.pgua.eic.tarefas.model.daos.JDBCUsuarioDAO;
-import ifpr.pgua.eic.tarefas.model.daos.TarefaDAO;
+import ifpr.pgua.eic.tarefas.model.daos.LivroDAO;
 import ifpr.pgua.eic.tarefas.model.daos.UsuarioDAO;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioAutor;
-import ifpr.pgua.eic.tarefas.model.repositories.RepositorioCategoria;
-import ifpr.pgua.eic.tarefas.model.repositories.RepositorioTarefa;
+import ifpr.pgua.eic.tarefas.model.repositories.RepositorioLivro;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioUsuario;
 import io.github.hugoperlin.navigatorfx.BaseAppNavigator;
 import io.github.hugoperlin.navigatorfx.ScreenRegistryFXML;
@@ -40,11 +33,8 @@ public class App extends BaseAppNavigator {
     private AutorDAO autorDAO = new JDBCAutorDAO(FabricaConexoes.getInstance());
     private RepositorioAutor repositorioAutor = new RepositorioAutor(autorDAO);
 
-    private CategoriaDAO categoriaDAO = new JDBCCategoriaDAO(FabricaConexoes.getInstance());
-    private RepositorioCategoria repositorioCategoria = new RepositorioCategoria(categoriaDAO);
-
-    private TarefaDAO tarefaDAO = new JDBCTarefaDAO(FabricaConexoes.getInstance());
-    private RepositorioTarefa repositorioTarefa = new RepositorioTarefa(tarefaDAO,categoriaDAO);
+    private LivroDAO livroDAO = new JDBCLivroDAO(FabricaConexoes.getInstance());
+    private RepositorioLivro repositorioLivro = new RepositorioLivro(livroDAO, autorDAO);
     
     public static void main(String[] args) {
         launch();
@@ -71,8 +61,8 @@ public class App extends BaseAppNavigator {
 
         registraTela("HOME", new ScreenRegistryFXML(App.class,"home.fxml",o->new Home()));
 
-        registraTela("LISTARLIVROS", new ScreenRegistryFXML(App.class,"listar_livros.fxml",o->new ListarLivros()));
-        registraTela("CADASTRARLIVRO", new ScreenRegistryFXML(App.class,"cadastrar_livro.fxml",o->new CadastrarLivro()));
+        registraTela("LISTARLIVROS", new ScreenRegistryFXML(App.class,"listar_livros.fxml",o->new ListarLivros(repositorioLivro, repositorioAutor)));
+        registraTela("CADASTRARLIVRO", new ScreenRegistryFXML(App.class,"cadastrar_livro.fxml",o->new CadastrarLivro(repositorioLivro, repositorioAutor)));                     
         registraTela("EDITARLIVRO", new ScreenRegistryFXML(App.class,"editar_livro.fxml",o->new EditarLivro()));
 
         registraTela("LISTARAUTORES", new ScreenRegistryFXML(App.class, "listar_autores.fxml", o->new ListarAutores(repositorioAutor)));
@@ -80,10 +70,6 @@ public class App extends BaseAppNavigator {
         
         registraTela("EDITARUSUARIO", new ScreenRegistryFXML(App.class, "editar_usuario.fxml", o->new EditarUsuario()));
 
-        registraTela("CADASTRARCATEGORIA", new ScreenRegistryFXML(App.class,"cadastrar_categoria.fxml",o->new CadastroCategoria(repositorioCategoria)));
-        registraTela("CADASTRARTAREFA", new ScreenRegistryFXML(App.class,"cadastrar_tarefa.fxml",o->new CadastroTarefa(repositorioTarefa, repositorioCategoria)));
-        registraTela("LISTARCATEGORIA", new ScreenRegistryFXML(App.class, "listar_categoria.fxml", o->new ListarCategoria(repositorioCategoria)));
-        registraTela("LISTARTAREFA", new ScreenRegistryFXML(App.class, "listar_tarefa.fxml", o->new ListarTarefa(repositorioTarefa)));
     }
 
 }

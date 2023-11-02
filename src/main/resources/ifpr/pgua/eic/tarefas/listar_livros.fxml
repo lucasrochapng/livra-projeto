@@ -10,7 +10,7 @@
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.ListarLivros">
    <children>
       <Label fx:id="lbLivros" text="SEUS LIVROS" />
-      <ListView fx:id="lstLivros" prefHeight="442.0" prefWidth="280.0" />
+      <ListView fx:id="lstLivros" onMouseClicked="#selecionar" prefHeight="442.0" prefWidth="280.0" />
       <HBox alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="280.0" spacing="5.0">
          <children>
             <Button mnemonicParsing="false" onAction="#adicionarLivro" text="ADD" />

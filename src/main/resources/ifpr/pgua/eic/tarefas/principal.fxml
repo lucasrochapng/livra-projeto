@@ -10,27 +10,7 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.Principal">
    <children>
-      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#cadastrarCategoria" text="Cadastrar Categoria" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#cadastrarTarefa" text="Cadastrar Tarefa" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#listarCategoria" text="Listar Categoria" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
-         <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#listarTarefa" text="Listar Tarefa" />
-         </children>
-      </HBox>
-      <VBox alignment="TOP_CENTER" prefHeight="297.0" prefWidth="300.0" spacing="10.0">
+      <VBox alignment="TOP_CENTER" prefHeight="159.0" prefWidth="260.0" spacing="10.0">
          <children>
             <TextField fx:id="tfNomeUsuario" promptText="Nome de Usuário" />
             <PasswordField fx:id="pfSenha" promptText="Senha" />
