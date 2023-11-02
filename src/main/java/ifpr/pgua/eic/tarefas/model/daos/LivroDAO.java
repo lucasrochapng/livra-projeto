@@ -10,7 +10,7 @@ public interface LivroDAO {
 
     public Resultado listar();
 
-    //public Resultado buscarPorId(int id);
+    public Resultado buscarPorId(int id);
 
     public Resultado atualizar(int id, Livro novo);
 

@@ -49,8 +49,11 @@ public class JDBCLivroDAO implements LivroDAO{
 
     @Override
     public Resultado listar() {
+
         try(Connection con = fabrica.getConnection()){
+
             PreparedStatement pstm = con.prepareStatement(SELECTSQL);
+            
             ResultSet rs = pstm.executeQuery();
 
             ArrayList<Livro> livros = new ArrayList<>();
@@ -97,35 +100,29 @@ public class JDBCLivroDAO implements LivroDAO{
         throw new UnsupportedOperationException("Unimplemented method 'excluir'");
     }
 
-
-
-    
-    
-}
-
-/*
-
     @Override
-    public Resultado listar() {
+    public Resultado buscarPorId(int id) {
         try(Connection con = fabrica.getConnection()) {
-            PreparedStatement pstm = con.prepareStatement(SELECTSQL);
-
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM livros WHERE id=?");
+            pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
-            
-            ArrayList<Tarefa> tarefas = new ArrayList<>();
-            while(rs.next()){
-                String titulo = rs.getString("titulo");
-                String descricao = rs.getString("descricao");
-                LocalDate dataPrazo = rs.getDate("dataPrazo").toLocalDate();
-                Categoria categoria = new Categoria(rs.getInt("categoriaId"));
 
-                Tarefa tarefa = new Tarefa(titulo, descricao, dataPrazo, categoria);
-                tarefas.add(tarefa);
+            if(rs.next()){
+                String titulo = rs.getString("titulo");
+                String genero = rs.getString("genero");
+                String descricao = rs.getString("descricao");
+
+                Livro livro = new Livro(id, titulo, null, genero, descricao);
+
+                return Resultado.sucesso("Livros listados", livro);
+            } else {
+                return Resultado.erro("Livro não encontrado!");
             }
-            return Resultado.sucesso("Tarefas listadas!", tarefas);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             return Resultado.erro(e.getMessage());
         }
     }
 
- */
+    
+    
+}

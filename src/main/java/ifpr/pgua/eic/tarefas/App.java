@@ -60,13 +60,14 @@ public class App extends BaseAppNavigator {
         registraTela("CADASTRARUSUARIO", new ScreenRegistryFXML(App.class,"cadastrar_usuario.fxml",o->new CadastrarUsuario(repositorioUsuario)));
 
         registraTela("HOME", new ScreenRegistryFXML(App.class,"home.fxml",o->new Home()));
+        
+        registraTela("CADASTRARAUTOR", new ScreenRegistryFXML(App.class, "cadastrar_autor.fxml", o->new CadastrarAutor(repositorioAutor)));
+        registraTela("LISTARAUTORES", new ScreenRegistryFXML(App.class, "listar_autores.fxml", o->new ListarAutores(repositorioAutor)));
 
-        registraTela("LISTARLIVROS", new ScreenRegistryFXML(App.class,"listar_livros.fxml",o->new ListarLivros(repositorioLivro, repositorioAutor)));
         registraTela("CADASTRARLIVRO", new ScreenRegistryFXML(App.class,"cadastrar_livro.fxml",o->new CadastrarLivro(repositorioLivro, repositorioAutor)));                     
+        registraTela("LISTARLIVROS", new ScreenRegistryFXML(App.class,"listar_livros.fxml",o->new ListarLivros(repositorioLivro)));
         registraTela("EDITARLIVRO", new ScreenRegistryFXML(App.class,"editar_livro.fxml",o->new EditarLivro()));
 
-        registraTela("LISTARAUTORES", new ScreenRegistryFXML(App.class, "listar_autores.fxml", o->new ListarAutores(repositorioAutor)));
-        registraTela("CADASTRARAUTOR", new ScreenRegistryFXML(App.class, "cadastrar_autor.fxml", o->new CadastrarAutor(repositorioAutor)));
         
         registraTela("EDITARUSUARIO", new ScreenRegistryFXML(App.class, "editar_usuario.fxml", o->new EditarUsuario()));
 

@@ -29,9 +29,9 @@ public class ListarLivros implements Initializable{
     @FXML
     private ListView<Livro> lstLivros;
 
-    public ListarLivros(RepositorioLivro repositorio, RepositorioAutor repositorioAutor){
+    public ListarLivros(RepositorioLivro repositorio){
         this.repositorio = repositorio;
-        this.repositorioAutor = repositorioAutor;
+        
     }
 
     @FXML

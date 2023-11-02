@@ -18,7 +18,7 @@ public class RepositorioLivro {
     private AutorDAO autorDAO;
 
     public RepositorioLivro(LivroDAO dao, AutorDAO autorDAO) {
-        livros = new ArrayList<>();
+        
         this.dao = dao;
         this.autorDAO = autorDAO;
     }
@@ -35,11 +35,47 @@ public class RepositorioLivro {
         return resultado.getMsg();
     }
 
-    public Resultado listar(){
-        return dao.listar();
+    private Resultado montaLivro(Livro livro) {
+        Resultado r2 = autorDAO.buscarAutorLivro(livro.getId());
+        if (r2.foiErro()) {
+            return r2;
+        }
+        Autor autor = (Autor) r2.comoSucesso().getObj();
+        livro.setAutor(autor);
 
+        return Resultado.sucesso("Livro montado", livro);
     }
 
+    public Resultado getById(int livroId) {
 
-    
+        Resultado r0 = dao.buscarPorId(livroId);
+
+        if(r0.foiSucesso()) {
+            Livro livro = (Livro) r0.comoSucesso().getObj();
+            return montaLivro(livro);
+        }
+        return r0;
+    }
+
+    public Resultado listar() {
+
+        Resultado resultado = dao.listar();
+
+        if (resultado.foiSucesso()) {
+            List<Livro> lista = (List<Livro>) resultado.comoSucesso().getObj();
+            
+
+            for(Livro livro : lista) {
+
+                Resultado r1 = montaLivro(livro);
+
+                if(r1.foiErro()){
+                    return r1;
+                }
+            }
+        }
+        return resultado;
+    }
+
+       
 }
