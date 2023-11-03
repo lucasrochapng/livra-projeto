@@ -1,0 +1,39 @@
+#telaEditarUsuario {
+    -fx-background-color: white;
+}
+
+#label {
+    -fx-text-fill: rgb(64, 255, 182);
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#btSalvar {
+    -fx-background-color: rgb(73, 255, 73);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#btSalvar:hover {
+    -fx-background-color: rgb(62, 214, 62);
+}
+
+#barraMenu {
+    -fx-background-color: rgb(54, 54, 54);
+}
+
+#btEditar {
+    -fx-background-color: rgb(51, 192, 138);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#btMenu {
+    -fx-background-color: rgb(64, 255, 182);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#btMenu:hover {
+    -fx-background-color: rgb(51, 192, 138);
+}

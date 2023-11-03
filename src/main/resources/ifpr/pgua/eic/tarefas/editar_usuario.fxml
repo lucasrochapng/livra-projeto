@@ -7,26 +7,44 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.EditarUsuario">
+<VBox fx:id="telaEditarUsuario" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" stylesheets="@css/editar_usuario.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.EditarUsuario">
    <children>
-      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="280.0">
+      <HBox alignment="CENTER" prefHeight="213.0" prefWidth="300.0">
          <children>
-            <Label fx:id="lbEditar" text="EDITAR INFORMAÇÕES" />
+            <Label fx:id="label" text="EDITAR INFORMAÇÕES" />
          </children>
       </HBox>
-      <TextField fx:id="tfNovoNome" promptText="novo nome" />
-      <TextField fx:id="tfNovoNomeUsuario" promptText="novo nome de usuário" />
-      <TextField fx:id="tfNovaSenha" promptText="nova senha" />
-      <TextField fx:id="tfNovoTelefone" promptText="novo telefone" />
-      <TextField fx:id="tfNovaIdade" promptText="nova idade" />
-      <Button mnemonicParsing="false" onAction="#salvar" prefHeight="25.0" prefWidth="309.0" text="SALVAR ALTERAÇÕES" />
+      <TextField fx:id="tfNovoNome" promptText="novo nome">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></TextField>
+      <TextField fx:id="tfNovoNomeUsuario" promptText="novo nome de usuário">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></TextField>
+      <TextField fx:id="tfNovaSenha" promptText="nova senha">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></TextField>
+      <TextField fx:id="tfNovoTelefone" promptText="novo telefone">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></TextField>
+      <TextField fx:id="tfNovaIdade" promptText="nova idade">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></TextField>
+      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#salvar" prefHeight="25.0" prefWidth="309.0" text="SALVAR ALTERAÇÕES">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></Button>
       <HBox prefHeight="212.0" prefWidth="280.0" />
-      <HBox alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
+      <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#abrirHome" text="Home" />
-            <Button mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />
-            <Button mnemonicParsing="false" onAction="#abrirAutores" text="Autores" />
-            <Button mnemonicParsing="false" onAction="#abrirEditar" text="Editar" />
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirHome" text="Home" />
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirAutores" text="Autores" />
+            <Button fx:id="btEditar" mnemonicParsing="false" onAction="#abrirEditar" text="Editar" />
          </children>
          <padding>
             <Insets bottom="5.0" top="5.0" />
@@ -34,6 +52,6 @@
       </HBox>
    </children>
    <padding>
-      <Insets left="10.0" right="10.0" top="10.0" />
+      <Insets top="10.0" />
    </padding>
 </VBox>

@@ -1,0 +1,52 @@
+#telaHome {
+    -fx-background-color: white;
+}
+
+#barraSuperior {
+    -fx-background-color: rgb(64, 255, 182);
+}
+
+#btVoltar {
+    -fx-background-color: rgb(64, 255, 182);
+    -fx-text-fill: white;
+}
+
+#btVoltar:hover {
+    -fx-background-color: rgb(51, 192, 138);
+    -fx-background-radius: 50;
+}
+
+#btPesquisar {
+    -fx-background-color: rgb(64, 255, 182);
+    -fx-text-fill: white;
+}
+
+#btPesquisar:hover {
+    -fx-background-color: rgb(51, 192, 138);
+    -fx-background-radius: 50;
+}
+
+#label {
+    -fx-text-fill: rgb(64, 255, 182);
+    -fx-font-weight: bold;
+}
+
+#barraMenu {
+    -fx-background-color: rgb(54, 54, 54);
+}
+
+#btHome {
+    -fx-background-color: rgb(51, 192, 138);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#btMenu {
+    -fx-background-color: rgb(64, 255, 182);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#btMenu:hover {
+    -fx-background-color: rgb(51, 192, 138);
+}

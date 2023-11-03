@@ -1,0 +1,27 @@
+#telaPrincipal {
+    -fx-background-color: white;
+}
+
+#btEntrar {
+    -fx-background-color: rgb(64, 255, 182);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#btEntrar:hover {
+    -fx-background-color: rgb(60, 226, 162);
+}
+
+#btRegistre {
+    -fx-background-color: white;
+    -fx-text-fill: rgb(64, 255, 182);
+}
+
+#btRegistre:hover {
+    -fx-text-fill: rgb(60, 226, 162);
+}
+
+#label {
+    -fx-text-fill: grey;
+}
+

@@ -1,0 +1,36 @@
+#telaEditAutor {
+    -fx-background-color: white;
+}
+
+#btVoltar {
+    -fx-background-color: white;
+    -fx-text-fill: rgb(64, 255, 182);
+    -fx-font-weight: bold;
+    -fx-font-size: 20px
+}
+
+#btVoltar:hover {   
+    -fx-text-fill: rgb(51, 192, 138);
+}
+
+#tfId {
+    -fx-background-color: white;
+    -fx-text-fill: white;
+}
+
+#btAcao {
+    -fx-background-color: rgb(73, 255, 73);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#btAcao:hover {
+    -fx-background-color: rgb(62, 214, 62);
+}
+
+#lbTexto {
+    -fx-text-fill: rgb(64, 255, 182);
+    -fx-font-weight: bold;
+    -fx-font-size: 15px
+}
+

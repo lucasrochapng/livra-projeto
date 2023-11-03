@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
@@ -26,6 +27,9 @@ public class CadastrarAutor implements Initializable{
 
     @FXML
     private Button btAcao;
+
+    @FXML
+    private Label lbTexto;
 
     private RepositorioAutor repositorio;
 
@@ -70,6 +74,7 @@ public class CadastrarAutor implements Initializable{
             tfNome.setText(anterior.getNome());
 
             btAcao.setText("ATUALIZAR");
+            lbTexto.setText("ATUALIZE SEU AUTOR");
         }
         
     }

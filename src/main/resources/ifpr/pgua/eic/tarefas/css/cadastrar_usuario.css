@@ -1,0 +1,30 @@
+#telaCadastrarUsuario {
+    -fx-background-color: white;
+}
+
+#btRegistrar {
+    -fx-background-color: rgb(64, 255, 182);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#btRegistrar:hover {
+    -fx-background-color: rgb(60, 226, 162);
+}
+
+#label {
+    -fx-text-fill: rgb(64, 255, 182);
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+#btVoltar {
+    -fx-background-color: white;
+    -fx-text-fill: rgb(64, 255, 182);
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+#btVoltar:hover {
+    -fx-text-fill: rgb(60, 226, 162);
+}
