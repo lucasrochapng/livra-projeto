@@ -21,7 +21,7 @@
             <Button fx:id="btDel" mnemonicParsing="false" onAction="#deletarAutor" text="del" />
          </children>
          <VBox.margin>
-            <Insets right="10.0" />
+            <Insets bottom="150.0" right="10.0" />
          </VBox.margin>
       </HBox>
       <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="35.0" prefWidth="294.0" spacing="10.0">
