@@ -9,7 +9,7 @@
 
 <VBox fx:id="telaEditarUsuario" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" stylesheets="@css/editar_usuario.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.EditarUsuario">
    <children>
-      <HBox alignment="CENTER" prefHeight="213.0" prefWidth="300.0">
+      <HBox alignment="CENTER" prefHeight="124.0" prefWidth="300.0">
          <children>
             <Label fx:id="label" text="EDITAR INFORMAÇÕES" />
          </children>
@@ -38,8 +38,8 @@
          <VBox.margin>
             <Insets left="10.0" right="10.0" />
          </VBox.margin></Button>
-      <HBox prefHeight="212.0" prefWidth="280.0" />
-      <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
+      <HBox prefHeight="151.0" prefWidth="300.0" />
+      <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="35.0" prefWidth="300.0" spacing="10.0">
          <children>
             <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirHome" text="Home" />
             <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />

@@ -1,33 +1,38 @@
 #telaHome {
-    -fx-background-color: white;
+    -fx-background-color: linear-gradient(to bottom, rgb(0, 153, 255), rgb(0, 153, 255), white,  white, white, white);
 }
 
 #barraSuperior {
-    -fx-background-color: rgb(64, 255, 182);
+    -fx-background-color: rgb(0, 153, 255);
 }
 
 #btVoltar {
-    -fx-background-color: rgb(64, 255, 182);
+    -fx-background-color: rgb(0, 153, 255);
     -fx-text-fill: white;
 }
 
 #btVoltar:hover {
-    -fx-background-color: rgb(51, 192, 138);
+    -fx-background-color: rgb(0, 117, 196);
     -fx-background-radius: 50;
 }
 
+#tfProcureLivros {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+}
+
 #btPesquisar {
-    -fx-background-color: rgb(64, 255, 182);
+    -fx-background-color: rgb(0, 153, 255);
     -fx-text-fill: white;
 }
 
 #btPesquisar:hover {
-    -fx-background-color: rgb(51, 192, 138);
+    -fx-background-color: rgb(0, 117, 196);
     -fx-background-radius: 50;
 }
 
 #label {
-    -fx-text-fill: rgb(64, 255, 182);
+    -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
@@ -36,17 +41,17 @@
 }
 
 #btHome {
-    -fx-background-color: rgb(51, 192, 138);
+    -fx-background-color: rgb(0, 117, 196);
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
 #btMenu {
-    -fx-background-color: rgb(64, 255, 182);
+    -fx-background-color: rgb(0, 153, 255);
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
 #btMenu:hover {
-    -fx-background-color: rgb(51, 192, 138);
+    -fx-background-color: rgb(0, 117, 196);
 }

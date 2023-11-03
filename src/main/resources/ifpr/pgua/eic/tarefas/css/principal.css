@@ -1,24 +1,29 @@
 #telaPrincipal {
+    -fx-background-color: linear-gradient(to bottom, rgb(0, 153, 255), rgb(0, 67, 112));
+}
+
+#caixaLogin {
     -fx-background-color: white;
+    -fx-background-radius: 5;
 }
 
 #btEntrar {
-    -fx-background-color: rgb(64, 255, 182);
+    -fx-background-color: rgb(0, 153, 255);
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
 #btEntrar:hover {
-    -fx-background-color: rgb(60, 226, 162);
+    -fx-background-color: rgb(0, 117, 196);
 }
 
 #btRegistre {
     -fx-background-color: white;
-    -fx-text-fill: rgb(64, 255, 182);
+    -fx-text-fill: rgb(0, 153, 255);
 }
 
 #btRegistre:hover {
-    -fx-text-fill: rgb(60, 226, 162);
+    -fx-text-fill: rgb(0, 117, 196);
 }
 
 #label {
