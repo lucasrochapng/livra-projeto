@@ -18,19 +18,19 @@ public class RepositorioAutor {
         this.dao = dao;
     }
 
-    public String cadastrarAutor(String nome){
+    public Resultado cadastrarAutor(String nome){
 
         Autor autor = new Autor(nome);
         Resultado resultado = dao.criar(autor);
-        return resultado.getMsg();
+        return resultado;
     }
 
-    public String alterarAutor(int id, String nome){
+    public Resultado alterarAutor(int id, String nome){
         Autor novo = new Autor(id, nome);
 
         Resultado resultado = dao.atualizar(id, novo);
 
-        return resultado.getMsg();
+        return resultado;
     }
 
     public Resultado listarAutor(){

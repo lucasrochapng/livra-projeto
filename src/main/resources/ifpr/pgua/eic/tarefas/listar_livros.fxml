@@ -7,23 +7,29 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.ListarLivros">
+<VBox fx:id="listarLivros" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" stylesheets="@css/listar_livros.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.ListarLivros">
    <children>
-      <Label fx:id="lbLivros" text="SEUS LIVROS" />
-      <ListView fx:id="lstLivros" onMouseClicked="#selecionar" prefHeight="442.0" prefWidth="280.0" />
+      <Label fx:id="label" text="SEUS LIVROS" />
+      <ListView fx:id="lstLivros" onMouseClicked="#selecionar" prefHeight="442.0" prefWidth="280.0">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></ListView>
       <HBox alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="280.0" spacing="5.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#adicionarLivro" text="ADD" />
-            <Button mnemonicParsing="false" onAction="#editarLivro" text="EDIT" />
-            <Button mnemonicParsing="false" onAction="#deletarLivro" text="DEL" />
+            <Button fx:id="btAdd" mnemonicParsing="false" onAction="#adicionarLivro" text="ADD" />
+            <Button fx:id="btAtt" mnemonicParsing="false" onAction="#editarLivro" text="EDIT" />
+            <Button fx:id="btDel" mnemonicParsing="false" onAction="#deletarLivro" text="DEL" />
          </children>
+         <VBox.margin>
+            <Insets right="10.0" />
+         </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
+      <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#abrirHome" text="Home" />
-            <Button mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />
-            <Button mnemonicParsing="false" onAction="#abrirAutores" text="Autores" />
-            <Button mnemonicParsing="false" onAction="#abrirEditar" text="Editar" />
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirHome" text="Home" />
+            <Button fx:id="btLivros" mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirAutores" text="Autores" />
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#editarLivro" text="Editar" />
          </children>
          <padding>
             <Insets bottom="5.0" top="5.0" />
@@ -31,6 +37,6 @@
       </HBox>
    </children>
    <padding>
-      <Insets left="10.0" right="10.0" top="10.0" />
+      <Insets top="10.0" />
    </padding>
 </VBox>

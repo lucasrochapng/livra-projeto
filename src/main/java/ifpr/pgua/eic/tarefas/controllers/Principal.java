@@ -23,7 +23,13 @@ public class Principal {
 
     @FXML
     void entrar(ActionEvent event) {
+
+        //acessar repositorioUsuario
+        //chamar metodo de login
+        //se for sucesso
         App.pushScreen("HOME");
+        //senão
+        //mensagem de erro...
     }
 
     @FXML

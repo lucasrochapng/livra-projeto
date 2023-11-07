@@ -71,10 +71,7 @@ public class ListarLivros implements Initializable{
 
     }
 
-    @FXML
-    void editarLivro(ActionEvent event) {
-        App.pushScreen("EDITARLIVRO");
-    }
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

@@ -10,6 +10,7 @@ import ifpr.pgua.eic.tarefas.model.entities.Usuario;
 public class RepositorioUsuario {
     
     private ArrayList<Usuario> usuarios;
+    //private Usuario logado;
 
     private UsuarioDAO dao;
 

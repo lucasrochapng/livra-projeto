@@ -53,7 +53,7 @@ public class ListarAutores implements Initializable{
 
     @FXML
     void adicionarAutor(ActionEvent event) {
-        App.pushScreen("CADASTRARAUTOR");
+        App.pushScreen("CADASTRARAUTOR", o->new CadastrarAutor(repositorio));
     }
 
     @FXML

@@ -50,14 +50,17 @@ public class CadastrarAutor implements Initializable{
         String nome = tfNome.getText();
         String id = tfId.getText();
 
-        String msg;
+        Resultado msg;
         if(anterior == null){
             msg = repositorio.cadastrarAutor(nome);
         }else{
             msg = repositorio.alterarAutor(Integer.valueOf(id), nome);
+            if(msg.foiSucesso()){
+                anterior = null;
+            }
         }
         
-        Alert alert = new Alert(AlertType.INFORMATION,msg);
+        Alert alert = new Alert(AlertType.INFORMATION,msg.getMsg());
         alert.showAndWait();
 
     }

@@ -1,0 +1,40 @@
+#telaEditLivro {
+    -fx-background-color: white;
+}
+
+#tfId {
+    -fx-background-color: white;
+    -fx-text-fill: white;
+}
+
+#btVoltar {
+    -fx-background-color: white;
+    -fx-text-fill: rgb(0, 153, 255);
+    -fx-font-weight: bold;
+    -fx-font-size: 20px
+}
+
+#btVoltar:hover {   
+    -fx-text-fill: rgb(0, 99, 165);
+}
+
+#btAcao {
+    -fx-background-color: rgb(0, 153, 255);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#btAcao:hover {
+    -fx-background-color: rgb(0, 117, 196);
+}
+
+#lbTexto {
+    -fx-text-fill: rgb(0, 153, 255);
+    -fx-font-weight: bold;
+    -fx-font-size: 15px
+}
+
+#cbAutor {
+    -fx-background-color: rgb(0, 153, 255)
+    
+}
