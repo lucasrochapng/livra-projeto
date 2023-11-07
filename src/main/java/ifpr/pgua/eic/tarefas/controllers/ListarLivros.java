@@ -21,13 +21,13 @@ import javafx.scene.control.Alert.AlertType;
 
 public class ListarLivros implements Initializable{
 
+    @FXML
+    private ListView<Livro> lstLivros;
+
     private RepositorioLivro repositorio;
     private RepositorioAutor repositorioAutor;
 
     private Livro selecionado;
-    
-    @FXML
-    private ListView<Livro> lstLivros;
 
     public ListarLivros(RepositorioLivro repositorio){
         this.repositorio = repositorio;

@@ -78,6 +78,7 @@ public class JDBCAutorDAO implements AutorDAO {
         
     }
 
+    /*
     @Override
     public Resultado buscarPorId(int id) {
         
@@ -101,6 +102,28 @@ public class JDBCAutorDAO implements AutorDAO {
             return Resultado.erro(e.getMessage());
         }
         
+    }
+    */
+    @Override
+    public Resultado buscarPorId(int id) {
+        try (Connection con = fabrica.getConnection()) {
+
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM autores WHERE id=?");
+
+            pstm.setInt(1, id);
+
+            ResultSet rs = pstm.executeQuery();
+
+            if(rs.next()){
+                String nome = rs.getString("nome");
+
+                Autor autor = new Autor(id, nome);
+                return Resultado.sucesso("Autor encontrado!", autor);
+            }
+            return Resultado.erro("Autor não encontrado!");
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
     }
 
     @Override
@@ -129,12 +152,12 @@ public class JDBCAutorDAO implements AutorDAO {
     }
 
     @Override
-    public Resultado buscarAutorLivro(int LivroId) {
+    public Resultado buscarAutorLivro(int livroId) {
         try(Connection con = fabrica.getConnection()) {
 
             PreparedStatement pstm = con.prepareStatement("SELECT autorId FROM livros WHERE id=?");
 
-            pstm.setInt(1, LivroId);
+            pstm.setInt(1, livroId);
 
             ResultSet rs = pstm.executeQuery();
             rs.next();

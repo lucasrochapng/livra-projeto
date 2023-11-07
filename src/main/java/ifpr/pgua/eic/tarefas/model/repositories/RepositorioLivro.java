@@ -18,7 +18,7 @@ public class RepositorioLivro {
     private AutorDAO autorDAO;
 
     public RepositorioLivro(LivroDAO dao, AutorDAO autorDAO) {
-        
+        livros = new ArrayList<>();
         this.dao = dao;
         this.autorDAO = autorDAO;
     }
@@ -35,6 +35,13 @@ public class RepositorioLivro {
         return resultado.getMsg();
     }
 
+    
+    // public Resultado listar(){
+    //     return dao.listar();
+    // }
+    
+
+    
     private Resultado montaLivro(Livro livro) {
         Resultado r2 = autorDAO.buscarAutorLivro(livro.getId());
         if (r2.foiErro()) {
@@ -76,6 +83,7 @@ public class RepositorioLivro {
         }
         return resultado;
     }
+    
 
        
 }
