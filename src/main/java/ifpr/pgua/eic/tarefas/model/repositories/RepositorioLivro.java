@@ -23,24 +23,17 @@ public class RepositorioLivro {
         this.autorDAO = autorDAO;
     }
 
-    public String cadastrarLivro(String titulo, Autor autor, String genero, String descricao) {
+    public Resultado cadastrarLivro(String titulo, Autor autor, String genero, String descricao) {
         Livro livro = new Livro(titulo, autor, genero, descricao);
         Resultado resultado = dao.criar(livro);
-        return resultado.getMsg();
+        return resultado;
     }
 
-    public String alterarLivro(int id, String titulo, Autor autor, String genero, String descricao){
+    public Resultado alterarLivro(int id, String titulo, Autor autor, String genero, String descricao){
         Livro novo = new Livro(titulo, autor, genero, descricao);
         Resultado resultado = dao.atualizar(id, novo);
-        return resultado.getMsg();
+        return resultado;
     }
-
-    
-    // public Resultado listar(){
-    //     return dao.listar();
-    // }
-    
-
     
     private Resultado montaLivro(Livro livro) {
         Resultado r2 = autorDAO.buscarAutorLivro(livro.getId());

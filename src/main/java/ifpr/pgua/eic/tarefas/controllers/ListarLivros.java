@@ -38,6 +38,11 @@ public class ListarLivros implements Initializable{
     private void selecionar(){
         selecionado = lstLivros.getSelectionModel().getSelectedItem();
     }
+    
+    @FXML
+    void adicionarLivro(ActionEvent event) {
+        App.pushScreen("CADASTRARLIVRO");
+    }
 
     @FXML
     private void editarLivro(){
@@ -57,14 +62,15 @@ public class ListarLivros implements Initializable{
     }
 
     @FXML
+    void editarUsuario(ActionEvent event){
+        App.pushScreen("EDITARUSUARIO");
+    }
+
+    @FXML
     void abrirLivros(ActionEvent event) {
 
     }
 
-    @FXML
-    void adicionarLivro(ActionEvent event) {
-        App.pushScreen("CADASTRARLIVRO");
-    }
 
     @FXML
     void deletarLivro(ActionEvent event) {

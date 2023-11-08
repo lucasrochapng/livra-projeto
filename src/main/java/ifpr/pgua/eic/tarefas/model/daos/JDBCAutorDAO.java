@@ -78,32 +78,6 @@ public class JDBCAutorDAO implements AutorDAO {
         
     }
 
-    /*
-    @Override
-    public Resultado buscarPorId(int id) {
-        
-        try(Connection con = fabrica.getConnection()) {
-            
-            PreparedStatement pstm = con.prepareStatement(SEARCHSQL);
-
-            pstm.setInt(1, id);
-
-            ResultSet rs = pstm.executeQuery();
-
-            rs.next();
-
-            String nome = rs.getString("nome");
-            
-            Autor autor = new Autor(nome);
-            autor.setId(id);
-
-            return Resultado.sucesso("Buscado com sucesso", autor);
-        } catch (Exception e) {
-            return Resultado.erro(e.getMessage());
-        }
-        
-    }
-    */
     @Override
     public Resultado buscarPorId(int id) {
         try (Connection con = fabrica.getConnection()) {

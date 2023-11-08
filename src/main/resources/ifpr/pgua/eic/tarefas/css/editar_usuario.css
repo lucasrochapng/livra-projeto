@@ -25,17 +25,17 @@
 }
 
 #btEditar {
-    -fx-background-color: rgb(0, 117, 196);
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    /* -fx-text-fill: white;
+    -fx-font-weight: bold; */
 }
 
 #btMenu {
-    -fx-background-color: rgb(0, 153, 255);
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    /* -fx-text-fill: white;
+    -fx-font-weight: bold; */
 }
 
-#btMenu:hover {
+/* #btMenu:hover {
     -fx-background-color: rgb(0, 117, 196);
-}
+} */

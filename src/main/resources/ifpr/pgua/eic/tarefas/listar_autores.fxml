@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -24,12 +26,40 @@
             <Insets bottom="150.0" right="10.0" />
          </VBox.margin>
       </HBox>
-      <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="35.0" prefWidth="294.0" spacing="10.0">
+      <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="37.0" prefWidth="294.0" spacing="10.0">
          <children>
-            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirHome" text="Home" />
-            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />
-            <Button fx:id="btAutores" mnemonicParsing="false" onAction="#abrirAutores" text="Autores" />
-            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirEditar" text="Editar" />
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirHome">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirLivros">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-livro.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btAutores" mnemonicParsing="false" onAction="#abrirAutores">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-pincelazul.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirEditar">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-perfil.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <padding>
             <Insets bottom="5.0" top="5.0" />

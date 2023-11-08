@@ -28,7 +28,7 @@
 
 #btPesquisar:hover {
     -fx-background-color: rgb(0, 117, 196);
-    -fx-background-radius: 50;
+    -fx-background-radius: 100;
 }
 
 #label {
@@ -41,17 +41,18 @@
 }
 
 #btHome {
-    -fx-background-color: rgb(0, 117, 196);
+    -fx-background-color: transparent;
+    /* -fx-background-color: rgb(0, 117, 196);
     -fx-text-fill: white;
-    -fx-font-weight: bold;
+    -fx-font-weight: bold; */
 }
 
 #btMenu {
-    -fx-background-color: rgb(0, 153, 255);
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    /* -fx-text-fill: white;
+    -fx-font-weight: bold; */
 }
 
-#btMenu:hover {
+/* #btMenu:hover {
     -fx-background-color: rgb(0, 117, 196);
-}
+} */

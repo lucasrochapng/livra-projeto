@@ -4,10 +4,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="listarLivros" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" stylesheets="@css/listar_livros.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.ListarLivros">
+<VBox fx:id="listarLivros" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" stylesheets="@css/listar_livros.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.ListarLivros">
    <children>
       <Label fx:id="label" text="SEUS LIVROS" />
       <ListView fx:id="lstLivros" onMouseClicked="#selecionar" prefHeight="442.0" prefWidth="280.0">
@@ -26,10 +28,38 @@
       </HBox>
       <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirHome" text="Home" />
-            <Button fx:id="btLivros" mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />
-            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirAutores" text="Autores" />
-            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#editarLivro" text="Editar" />
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirHome">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btLivros" mnemonicParsing="false" onAction="#abrirLivros">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-livroazul.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirAutores">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-pincel.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#editarUsuario">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-perfil.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <padding>
             <Insets bottom="5.0" top="5.0" />

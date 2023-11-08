@@ -11,17 +11,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="telaHome" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" stylesheets="@css/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.Home">
+<VBox fx:id="telaHome" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" stylesheets="@css/home.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.Home">
    <children>
       <HBox fx:id="barraSuperior" alignment="CENTER" prefHeight="34.0" prefWidth="300.0">
          <children>
-            <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#voltar" text="❮" translateX="-6.0" />
-            <TextField fx:id="tfProcureLivros" prefHeight="25.0" prefWidth="232.0" promptText="Procure por um livro..." />
+            <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#voltar">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-seta.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <TextField fx:id="tfProcureLivros" prefHeight="25.0" prefWidth="212.0" promptText="Procure por um livro..." />
             <Button fx:id="btPesquisar" mnemonicParsing="false" onAction="#procurarLivro" prefHeight="48.0" prefWidth="54.0">
                <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/lupa4.png" />
+                        <Image url="@img/icon-lupaaa.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -32,7 +39,7 @@
       </HBox>
       <VBox alignment="TOP_CENTER" prefHeight="535.0" prefWidth="280.0" spacing="10.0">
          <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" />
          </VBox.margin>
          <children>
             <Label fx:id="label" text="BIBLIOTECA DE TROCAS" />
@@ -42,10 +49,38 @@
       </VBox>
       <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button fx:id="btHome" mnemonicParsing="false" onAction="#abrirHome" text="Home" />
-            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirLivros" text="Livros" />
-            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirAutores" text="Autores" />
-            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirEditar" text="Editar" />
+            <Button fx:id="btHome" mnemonicParsing="false" onAction="#abrirHome">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-homeazul.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirLivros">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-livro.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirAutores">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-pincel.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirEditar">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-perfil.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <padding>
             <Insets bottom="5.0" top="5.0" />
