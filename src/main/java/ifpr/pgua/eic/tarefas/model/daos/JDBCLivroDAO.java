@@ -76,12 +76,12 @@ public class JDBCLivroDAO implements LivroDAO{
     public Resultado atualizar(int id, Livro novo) {
         try(Connection con = fabrica.getConnection();){
             PreparedStatement pstm = con.prepareStatement("UPDATE livros SET titulo=?, autorId=?, genero=?, descricao=? WHERE id=?");
-
+            
             pstm.setString(1, novo.getTitulo());
-            pstm.setInt(2, id);
-            pstm.setInt(3, novo.getAutor().getId());
-            pstm.setString(4, novo.getGenero());
-            pstm.setString(5, novo.getDescricao());
+            pstm.setInt(2, novo.getAutor().getId());
+            pstm.setString(3, novo.getGenero());
+            pstm.setString(4, novo.getDescricao());
+            pstm.setInt(5, id);
 
             int ret = pstm.executeUpdate();
 

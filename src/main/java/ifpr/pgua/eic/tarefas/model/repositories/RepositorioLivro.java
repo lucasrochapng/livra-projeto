@@ -30,7 +30,7 @@ public class RepositorioLivro {
     }
 
     public Resultado alterarLivro(int id, String titulo, Autor autor, String genero, String descricao){
-        Livro novo = new Livro(titulo, autor, genero, descricao);
+        Livro novo = new Livro(id, titulo, autor, genero, descricao);
         Resultado resultado = dao.atualizar(id, novo);
         return resultado;
     }

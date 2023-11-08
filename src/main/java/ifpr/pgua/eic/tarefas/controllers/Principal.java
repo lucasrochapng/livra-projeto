@@ -39,24 +39,5 @@ public class Principal {
 
     //----------------------------------------
 
-    @FXML
-    void cadastrarCategoria(ActionEvent event) {
-        App.pushScreen("CADASTRARCATEGORIA");
-    }
-
-    @FXML
-    void cadastrarTarefa(ActionEvent event) {
-        App.pushScreen("CADASTRARTAREFA");
-    }
-
-    @FXML
-    void listarCategoria(ActionEvent event) {
-        App.pushScreen("LISTARCATEGORIA");
-    }
-
-    @FXML
-    void listarTarefa(ActionEvent event) {
-        App.pushScreen("LISTARTAREFA");
-    }
 
 }
