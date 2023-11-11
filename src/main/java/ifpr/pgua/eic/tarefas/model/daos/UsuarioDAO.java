@@ -15,5 +15,7 @@ public interface UsuarioDAO {
     public Resultado excluir(int id);
 
     public Resultado buscarPorId(int id);
+
+    public Resultado logar(String nomeUsuario, String senha);
     
 }

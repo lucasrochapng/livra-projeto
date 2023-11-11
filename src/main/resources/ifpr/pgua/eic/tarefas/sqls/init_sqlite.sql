@@ -23,3 +23,22 @@ CREATE TABLE IF NOT EXISTS livros(
     PRIMARY KEY(id),
     foreign key(autorId) references autores(id)
 );
+
+CREATE TABLE IF NOT EXISTS livros_usuario(
+    id int AUTO_INCREMENT not null,
+    id_livro int not null,
+    id_usuario int not null,
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_livro) references livros(id),
+    FOREIGN KEY(id_usuario) references usuarios(id)
+);
+
+CREATE TABLE IF NOT EXISTS troca(
+    id int AUTO_INCREMENT not null,
+    id_livro int not null,
+    id_usuario int not null,
+    estado int,
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_livro) references livros(id),
+    FOREIGN KEY(id_usuario) references usuarios(id)
+);

@@ -2,6 +2,9 @@ package ifpr.pgua.eic.tarefas.model.daos;
 
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.naming.spi.DirStateFactory.Result;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -89,6 +92,35 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 
             return Resultado.sucesso("Buscado com sucesso", usuario);
         } catch(Exception e) {
+            return Resultado.erro(e.getMessage());
+        }
+    }
+
+    @Override
+    public Resultado logar(String nomeUsuario, String senha) {
+        try(Connection con = fabrica.getConnection()) {
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuarios WHERE nomeUsuario=? AND senha=?");
+
+            pstm.setString(1, nomeUsuario);
+            pstm.setString(2, senha);
+
+            ResultSet rs = pstm.executeQuery();
+
+            if(rs.next()){
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                String nomeUsuarioLogin = rs.getString("nomeUsuario");
+                String senhaLogin = rs.getString("senha");
+                int telefone = rs.getInt("telefone");
+                int idade = rs.getInt("idade");
+
+                Usuario usuario = new Usuario(id, nome, nomeUsuarioLogin, senhaLogin, telefone, idade);
+
+                return Resultado.sucesso("Seja Bem Vindo!", usuario);
+            }
+            return Resultado.erro("Credenciais inválidas");
+
+        } catch (SQLException e) {
             return Resultado.erro(e.getMessage());
         }
     }

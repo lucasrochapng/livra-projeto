@@ -10,7 +10,7 @@ public class Usuario {
     private String senha;
     private int telefone;
     private int idade;
-    private ArrayList<Livro> meusLivros = new ArrayList<>();
+    private boolean logado;
 
 
     public Usuario(int id, String nome, String nomeUsuario, String senha, int telefone, int idade) {
@@ -20,6 +20,7 @@ public class Usuario {
         this.senha = senha;
         this.telefone = telefone;
         this.idade = idade;
+        this.logado = false;
     }
 
     public Usuario(String nome, String nomeUsuario, String senha, int telefone, int idade){
@@ -28,6 +29,7 @@ public class Usuario {
         this.senha = senha;
         this.telefone = telefone;
         this.idade = idade;
+        this.logado = false;
     }
 
     public int getId() {
@@ -72,11 +74,12 @@ public class Usuario {
         this.idade = idade;
     }
 
-    public ArrayList<Livro> getMeusLivros() {
-        return meusLivros;
+    public boolean isLogado() {
+        return logado;
     }
-    public void setMeusLivros(ArrayList<Livro> meusLivros) {
-        this.meusLivros = meusLivros;
+
+    public void setLogado(boolean logado){
+        this.logado = logado;
     }
 
     @Override

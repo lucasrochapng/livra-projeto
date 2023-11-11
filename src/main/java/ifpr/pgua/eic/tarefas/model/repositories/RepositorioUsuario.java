@@ -11,6 +11,7 @@ public class RepositorioUsuario {
     
     private ArrayList<Usuario> usuarios;
     //private Usuario logado;
+    private Usuario contaLogada;
 
     private UsuarioDAO dao;
 
@@ -44,6 +45,38 @@ public class RepositorioUsuario {
         Usuario usuario = new Usuario(nome, nomeUsuario, senha, telefone, idade);
         return dao.criar(usuario);
     }
+
+    public Resultado login(String nomeUsuario, String senha){
+        if(nomeUsuario.isEmpty() || nomeUsuario.isBlank()) {
+            return Resultado.erro("Nome Inválido!");
+        }
+        if(senha.isEmpty() || senha.isBlank()) {
+            return Resultado.erro("Senha Inválida!");
+        }
+        Resultado resultado = dao.logar(nomeUsuario, senha);
+        if(resultado.foiSucesso()) {
+            setContaLogada(resultado);
+        }
+        return resultado;
+    }
+
+    public void setContaLogada(Resultado resultado){
+        contaLogada = (Usuario) resultado.comoSucesso().getObj();
+    }
+
+    public Usuario contaLogada(){
+        return contaLogada;
+    }
+
+
+
+
+
+
+
+
+
+
 
 }
 
