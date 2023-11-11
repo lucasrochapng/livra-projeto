@@ -1,23 +1,5 @@
 #telaEditarUsuario {
-    -fx-background-color:  linear-gradient(to bottom, rgb(0, 153, 255), white,  white, white, white);
-}
-
-#label {
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-font-size: 15px;
-}
-
-
-
-#btSalvar {
-    -fx-background-color: rgb(0, 153, 255);
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-}
-
-#btSalvar:hover {
-    -fx-background-color: rgb(0, 117, 196);
+    -fx-background-color:  linear-gradient(to bottom, rgb(0, 153, 255), rgb(0, 153, 255),  rgb(0, 153, 255), white, white);
 }
 
 #barraMenu {
@@ -39,3 +21,72 @@
 /* #btMenu:hover {
     -fx-background-color: rgb(0, 117, 196);
 } */
+
+#labelPerfil {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#tfNome {
+    -fx-background-color: rgb(0, 123, 206);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#tfIdade {
+    -fx-background-color: rgb(0, 123, 206);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#tfNomeUsuario {
+    -fx-background-color: rgb(0, 123, 206);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#tfTelefone {
+    -fx-background-color: rgb(0, 123, 206);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#vboxNome {
+    -fx-background-color: rgb(0, 123, 206);
+    -fx-background-radius: 3;
+}
+
+#vboxIdade {
+    -fx-background-color: rgb(0, 123, 206);
+    -fx-background-radius: 3;
+}
+
+#vboxUsuario {
+    -fx-background-color: rgb(0, 123, 206);
+    -fx-background-radius: 3;
+}
+
+#vboxWhats {
+    -fx-background-color: rgb(0, 123, 206);
+    -fx-background-radius: 3;
+}
+
+#label {
+    -fx-text-fill: white;
+}
+
+#btEditarUsuario {
+    -fx-background-color: transparent;
+    
+}
+
+#btEditarUsuario:hover {
+    -fx-background-color: rgb(0, 123, 206);
+    -fx-background-radius: 100;
+}
+

@@ -105,8 +105,8 @@ public class EditarUsuario implements Initializable{
     public void initialize(URL arg0, ResourceBundle arg1) {
         tfNome.setText(repositorioUsuario.contaLogada().getNome());
         tfNomeUsuario.setText(repositorioUsuario.contaLogada().getNomeUsuario());
-        tfTelefone.setText(repositorioUsuario.contaLogada().getTelefone()+"");
         tfIdade.setText(repositorioUsuario.contaLogada().getIdade()+"");
+        tfTelefone.setText(repositorioUsuario.contaLogada().getTelefone()+"");
     
     }
 

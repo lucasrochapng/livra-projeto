@@ -8,48 +8,113 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox fx:id="telaEditarUsuario" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" stylesheets="@css/editar_usuario.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.EditarUsuario">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="300.0">
+      <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="280.0">
+         <children>
+            <Label fx:id="labelPerfil" text="PERFIL" />
+            <Button fx:id="btEditarUsuario" mnemonicParsing="false" onAction="#editarUsuario" prefHeight="25.0" prefWidth="37.0">
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/config.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
          <VBox.margin>
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
+      </HBox>
+      <VBox fx:id="vboxNome" prefHeight="50.0" prefWidth="300.0">
          <children>
-            <TextField fx:id="tfNome" editable="false" prefHeight="25.0" prefWidth="78.0" />
-            <Label text="|" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
+            <Label fx:id="label" text="Nome">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
             </Label>
-            <TextField fx:id="tfNomeUsuario" editable="false" prefHeight="25.0" prefWidth="80.0" />
-            <Button fx:id="btEditarUsuario" mnemonicParsing="false" onAction="#editarUsuario" prefHeight="25.0" prefWidth="37.0" text="Editar">
-               <HBox.margin>
-                  <Insets left="80.0" />
-               </HBox.margin>
-            </Button>
+            <TextField fx:id="tfNome" editable="false" prefHeight="31.0" prefWidth="248.0" promptText="nome" />
          </children>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="vboxIdade" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label fx:id="label" text="Idade">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="tfIdade" editable="false" prefHeight="25.0" prefWidth="60.0" promptText="idade" />
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="vboxUsuario" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label fx:id="label" text="Usuário">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="tfNomeUsuario" editable="false" prefHeight="25.0" prefWidth="80.0" promptText="usuario" />
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="vboxWhats" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label fx:id="label" text="WhatsApp">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="tfTelefone" editable="false" prefHeight="25.0" prefWidth="219.0" promptText="telefone">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="23.0" prefWidth="300.0">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="280.0">
          <VBox.margin>
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
-         <children>
-            <Label fx:id="labelTelefone" text="Telefone | " />
-            <TextField fx:id="tfTelefone" editable="false" prefHeight="25.0" prefWidth="105.0" />
-         </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="280.0">
-         <children>
-            <Label fx:id="labelIdade" text="Idade | " />
-            <TextField fx:id="tfIdade" editable="false" prefHeight="25.0" prefWidth="47.0" />
-         </children>
          <VBox.margin>
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
       </HBox>
-      <HBox prefHeight="377.0" prefWidth="300.0" />
+      <HBox prefHeight="201.0" prefWidth="300.0" />
       <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
          <children>
             <Button fx:id="btMenu" mnemonicParsing="false" onAction="#abrirHome">
