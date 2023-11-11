@@ -65,20 +65,9 @@ public class EditarUsuario implements Initializable{
         this.repositorioUsuario = repositorioUsuario;
     }
 
-    /*
-    private RepositorioAutor repositorio;
-
-    private Autor anterior;
-
-    public CadastrarAutor(RepositorioAutor repositorio){
-        this.repositorio = repositorio;
-    }
-
-     */
-
     @FXML
     void editarUsuario(ActionEvent event) {
-
+        App.pushScreen("EDITARDADOS");
     }
 
     @FXML

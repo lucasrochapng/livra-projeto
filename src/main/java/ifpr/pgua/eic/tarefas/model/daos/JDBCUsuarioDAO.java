@@ -60,9 +60,48 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 
     @Override
     public Resultado editar(int id, Usuario novo) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'editar'");
+        try(Connection con = fabrica.getConnection();) {
+            PreparedStatement pstm = con.prepareStatement("UPDATE usuarios SET nome=?, nomeUsuario=?, senha=?, telefone=?, idade=? WHERE id=?");
+
+            pstm.setInt(1, id);
+            pstm.setString(2, novo.getNome());
+            pstm.setString(3, novo.getNomeUsuario());
+            pstm.setString(4, novo.getSenha());
+            pstm.setInt(5, novo.getTelefone());
+            pstm.setInt(6, novo.getIdade());
+
+            int ret = pstm.executeUpdate();
+
+            if(ret == 1){
+                return Resultado.sucesso("Usuário atualizado", novo);
+            }
+            return Resultado.erro("Erro não identificado!");
+
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
     }
+
+    /*
+    @Override
+    public Resultado atualizar(int id, Autor novo) {
+        try(Connection con = fabrica.getConnection();) {
+            PreparedStatement pstm = con.prepareStatement("UPDATE autores SET nome=? WHERE id=?");
+
+            pstm.setString(1, novo.getNome());
+            pstm.setInt(2, id);
+
+            int ret = pstm.executeUpdate();
+
+            if(ret == 1){
+                return Resultado.sucesso("Autor atualizado", novo);
+            }
+            return Resultado.erro("Erro não identificado!");
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
+    }
+     */
 
     @Override
     public Resultado excluir(int id) {

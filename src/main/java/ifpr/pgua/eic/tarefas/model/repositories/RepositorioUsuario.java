@@ -39,11 +39,17 @@ public class RepositorioUsuario {
         }
 
         if(idade <= 17){
-            return Resultado.erro("Lamentamos informar que não podemos concluir o seu processo de cadastro, uma vez que a legislação vigente exige que os usuários sejam maiores de idade para utilizar nossos serviços!");
+            return Resultado.erro("Idade inválida!");
         }
 
         Usuario usuario = new Usuario(nome, nomeUsuario, senha, telefone, idade);
         return dao.criar(usuario);
+    }
+
+    public Resultado alterarUsuario(int id, String nome, String nomeUsuario, String senha, int telefone, int idade) {
+        Usuario novo = new Usuario(id, nome, nomeUsuario, senha, telefone, idade);
+        Resultado resultado = dao.editar(id, novo);
+        return resultado;
     }
 
     public Resultado login(String nomeUsuario, String senha){
