@@ -155,7 +155,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 
                 Usuario usuario = new Usuario(id, nome, nomeUsuarioLogin, senhaLogin, telefone, idade);
 
-                return Resultado.sucesso("Seja Bem Vindo!", usuario);
+                return Resultado.sucesso("Bem vindo ao Livra!", usuario);
             }
             return Resultado.erro("Credenciais inválidas");
 

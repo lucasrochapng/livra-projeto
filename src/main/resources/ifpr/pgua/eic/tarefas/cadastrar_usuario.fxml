@@ -15,11 +15,12 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <HBox alignment="CENTER" prefHeight="84.0" prefWidth="260.0">
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="260.0">
          <children>
             <Label fx:id="label" text="REGISTRE-SE" />
          </children>
       </HBox>
+      <TextField fx:id="tfId" editable="false" promptText="id" />
       <HBox prefHeight="21.0" prefWidth="260.0" spacing="10.0">
          <children>
             <TextField fx:id="tfNome" promptText="Nome" />
@@ -27,7 +28,6 @@
          </children>
       </HBox>
       <PasswordField fx:id="pfSenha" promptText="Senha" />
-      <PasswordField fx:id="pfRepetirSenha" promptText="Repetir Senha" />
       <TextField fx:id="tfWhatsapp" promptText="WhatsApp" />
       <TextField fx:id="tfIdade" promptText="Idade" />
       <Button fx:id="btRegistrar" mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="289.0" text="REGISTRAR" />

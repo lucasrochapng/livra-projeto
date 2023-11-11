@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import ifpr.pgua.eic.tarefas.App;
+import ifpr.pgua.eic.tarefas.model.entities.Usuario;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,6 +60,8 @@ public class EditarUsuario implements Initializable{
     @FXML
     private TextField tfTelefone;
 
+    private Usuario logado;
+
     private RepositorioUsuario repositorioUsuario;
 
     public EditarUsuario(RepositorioUsuario repositorioUsuario){
@@ -66,8 +69,17 @@ public class EditarUsuario implements Initializable{
     }
 
     @FXML
+    private void logado(){
+        logado = repositorioUsuario.contaLogada();
+    }
+
+    @FXML
     void editarUsuario(ActionEvent event) {
-        App.pushScreen("EDITARDADOS");
+        logado = repositorioUsuario.contaLogada();
+        if(logado != null){
+            App.pushScreen("CADASTRARUSUARIO", o->new CadastrarUsuario(repositorioUsuario, logado));
+        }
+        
     }
 
     @FXML
