@@ -1,30 +1,85 @@
 package ifpr.pgua.eic.tarefas.controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import ifpr.pgua.eic.tarefas.App;
+import ifpr.pgua.eic.tarefas.model.repositories.RepositorioUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
-public class EditarUsuario {
-
-    @FXML
-    private Label lbEditar;
-
-    @FXML
-    private TextField tfNovaIdade;
+public class EditarUsuario implements Initializable{
 
     @FXML
-    private TextField tfNovaSenha;
+    private ImageView abrirAutores;
 
     @FXML
-    private TextField tfNovoNome;
+    private ImageView abrirHome;
 
     @FXML
-    private TextField tfNovoNomeUsuario;
+    private ImageView abrirLivros;
 
     @FXML
-    private TextField tfNovoTelefone;
+    private HBox barraMenu;
+
+    @FXML
+    private Button btEditar;
+
+    @FXML
+    private Button btEditarUsuario;
+
+    @FXML
+    private Button btMenu;
+
+    @FXML
+    private Label labelIdade;
+
+    @FXML
+    private Label labelTelefone;
+
+    @FXML
+    private VBox telaEditarUsuario;
+
+    @FXML
+    private TextField tfIdade;
+
+    @FXML
+    private TextField tfNome;
+
+    @FXML
+    private TextField tfNomeUsuario;
+
+    @FXML
+    private TextField tfTelefone;
+
+    private RepositorioUsuario repositorioUsuario;
+
+    public EditarUsuario(RepositorioUsuario repositorioUsuario){
+        this.repositorioUsuario = repositorioUsuario;
+    }
+
+    /*
+    private RepositorioAutor repositorio;
+
+    private Autor anterior;
+
+    public CadastrarAutor(RepositorioAutor repositorio){
+        this.repositorio = repositorio;
+    }
+
+     */
+
+    @FXML
+    void editarUsuario(ActionEvent event) {
+
+    }
 
     @FXML
     void abrirAutores(ActionEvent event) {
@@ -46,9 +101,14 @@ public class EditarUsuario {
         App.pushScreen("LISTARLIVROS");
     }
 
-    @FXML
-    void salvar(ActionEvent event) {
-
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        tfNome.setText(repositorioUsuario.contaLogada().getNome());
+        tfNomeUsuario.setText(repositorioUsuario.contaLogada().getNomeUsuario());
+        tfTelefone.setText(repositorioUsuario.contaLogada().getTelefone()+"");
+        tfIdade.setText(repositorioUsuario.contaLogada().getIdade()+"");
+    
     }
 
 }
+
