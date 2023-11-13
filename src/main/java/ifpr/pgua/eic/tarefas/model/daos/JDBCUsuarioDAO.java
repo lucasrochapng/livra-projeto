@@ -82,26 +82,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
         }
     }
 
-    /*
-    @Override
-    public Resultado atualizar(int id, Autor novo) {
-        try(Connection con = fabrica.getConnection();) {
-            PreparedStatement pstm = con.prepareStatement("UPDATE autores SET nome=? WHERE id=?");
-
-            pstm.setString(1, novo.getNome());
-            pstm.setInt(2, id);
-
-            int ret = pstm.executeUpdate();
-
-            if(ret == 1){
-                return Resultado.sucesso("Autor atualizado", novo);
-            }
-            return Resultado.erro("Erro não identificado!");
-        } catch (SQLException e) {
-            return Resultado.erro(e.getMessage());
-        }
-    }
-     */
+    
 
     @Override
     public Resultado excluir(int id) {

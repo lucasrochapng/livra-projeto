@@ -12,18 +12,39 @@
 <VBox fx:id="telaListarAutores" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" stylesheets="@css/listar_autores.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.ListarAutores">
    <children>
       <Label fx:id="label" text="SEUS AUTORES" />
-      <ListView fx:id="lstAutores" onMouseClicked="#selecionar" prefHeight="442.0" prefWidth="280.0">
+      <ListView fx:id="lstAutores" onMouseClicked="#selecionar" prefHeight="313.0" prefWidth="280.0">
          <VBox.margin>
             <Insets left="10.0" right="10.0" />
          </VBox.margin></ListView>
       <HBox alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="280.0" spacing="5.0">
          <children>
-            <Button fx:id="btAdd" mnemonicParsing="false" onAction="#adicionarAutor" text="add" />
-            <Button fx:id="btAtt" mnemonicParsing="false" onAction="#editarAutor" text="att" />
-            <Button fx:id="btDel" mnemonicParsing="false" onAction="#deletarAutor" text="del" />
+            <Button fx:id="btAdd" mnemonicParsing="false" onAction="#adicionarAutor">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-addautor.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btAtt" mnemonicParsing="false" onAction="#editarAutor">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-editautor.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btDel" mnemonicParsing="false" onAction="#deletarAutor">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-delautor.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <VBox.margin>
-            <Insets bottom="150.0" right="10.0" />
+            <Insets bottom="100.0" right="10.0" />
          </VBox.margin>
       </HBox>
       <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="37.0" prefWidth="294.0" spacing="10.0">

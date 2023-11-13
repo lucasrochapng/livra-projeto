@@ -75,6 +75,33 @@ public class JDBCLivroDAO implements LivroDAO{
     }
 
     @Override
+    public Resultado listarPorContato(String contato) {
+        try(Connection con = fabrica.getConnection()){
+
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM livros2 WHERE contato=?");
+
+            pstm.setString(1, contato);
+
+            ResultSet rs = pstm.executeQuery();
+
+            ArrayList<Livro> livros = new ArrayList<>();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String titulo = rs.getString("titulo");
+                String genero = rs.getString("genero");
+                String descricao = rs.getString("descricao");
+                String contatoLivro = rs.getString("contato");
+
+                Livro livro = new Livro(id, titulo, null, genero, descricao, contatoLivro);
+                livros.add(livro);
+            }
+            return Resultado.sucesso("Livros listados", livros);
+        } catch (Exception e){
+            return Resultado.erro(e.getMessage());
+        }
+    }
+
+    @Override
     public Resultado atualizar(int id, Livro novo) {
         try(Connection con = fabrica.getConnection();){
             PreparedStatement pstm = con.prepareStatement("UPDATE livros SET titulo=?, autorId=?, genero=?, descricao=? WHERE id=?");

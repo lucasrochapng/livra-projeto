@@ -18,9 +18,22 @@
          </VBox.margin></ListView>
       <HBox alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="280.0" spacing="5.0">
          <children>
-            <Button fx:id="btAdd" mnemonicParsing="false" onAction="#adicionarLivro" text="ADD" />
-            <Button fx:id="btAtt" mnemonicParsing="false" onAction="#editarLivro" text="EDIT" />
-            <Button fx:id="btDel" mnemonicParsing="false" onAction="#deletarLivro" text="DEL" />
+            <Button fx:id="btAdd" mnemonicParsing="false" onAction="#adicionarLivro">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-addlivro.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btDel" mnemonicParsing="false" onAction="#deletarLivro">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon-dellivro.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <VBox.margin>
             <Insets right="10.0" />

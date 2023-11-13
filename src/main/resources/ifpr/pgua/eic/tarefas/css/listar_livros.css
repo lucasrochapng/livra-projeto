@@ -29,24 +29,15 @@
 }
 
 #btAdd {
-    -fx-background-color: rgb(73, 255, 73);
+    -fx-background-color: rgb(0, 153, 255);
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
 #btAdd:hover {
-    -fx-background-color: rgb(62, 214, 62);
+    -fx-background-color: rgb(0, 117, 196);
 }
 
-#btAtt {
-    -fx-background-color: rgb(48, 231, 255);
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-}
-
-#btAtt:hover {
-    -fx-background-color: rgb(39, 189, 209);
-}
 
 #btDel {
     -fx-background-color: rgb(255, 47, 47);
