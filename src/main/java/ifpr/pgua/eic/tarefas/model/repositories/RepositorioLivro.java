@@ -23,14 +23,14 @@ public class RepositorioLivro {
         this.autorDAO = autorDAO;
     }
 
-    public Resultado cadastrarLivro(String titulo, Autor autor, String genero, String descricao) {
-        Livro livro = new Livro(titulo, autor, genero, descricao);
+    public Resultado cadastrarLivro(String titulo, Autor autor, String genero, String descricao, String contato) {
+        Livro livro = new Livro(titulo, autor, genero, descricao, contato);
         Resultado resultado = dao.criar(livro);
         return resultado;
     }
 
-    public Resultado alterarLivro(int id, String titulo, Autor autor, String genero, String descricao){
-        Livro novo = new Livro(id, titulo, autor, genero, descricao);
+    public Resultado alterarLivro(int id, String titulo, Autor autor, String genero, String descricao, String contato){
+        Livro novo = new Livro(id, titulo, autor, genero, descricao, contato);
         Resultado resultado = dao.atualizar(id, novo);
         return resultado;
     }

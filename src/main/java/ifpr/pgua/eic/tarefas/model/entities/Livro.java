@@ -7,20 +7,23 @@ public class Livro {
     private Autor autor;
     private String genero;
     private String descricao;
+    private String contato;
 
-    public Livro(int id, String titulo, Autor autor, String genero, String descricao){
+    public Livro(int id, String titulo, Autor autor, String genero, String descricao, String contato){
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.descricao = descricao;
+        this.contato = contato;
     }
 
-    public Livro(String titulo, Autor autor, String genero, String descricao){
+    public Livro(String titulo, Autor autor, String genero, String descricao, String contato){
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.descricao = descricao;
+        this.contato = contato;
     }
 
     public int getId() {
@@ -56,6 +59,13 @@ public class Livro {
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getContato() {
+        return contato;
+    }
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 
     @Override

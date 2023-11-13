@@ -63,6 +63,8 @@ public class CadastrarAutor implements Initializable{
         Alert alert = new Alert(AlertType.INFORMATION,msg.getMsg());
         alert.showAndWait();
 
+        tfNome.clear();
+
     }
 
     @FXML

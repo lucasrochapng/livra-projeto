@@ -1,26 +1,59 @@
 package ifpr.pgua.eic.tarefas.controllers;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import com.github.hugoperlin.results.Resultado;
+
 import ifpr.pgua.eic.tarefas.App;
+import ifpr.pgua.eic.tarefas.model.entities.Livro;
+import ifpr.pgua.eic.tarefas.model.repositories.RepositorioLivro;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class Home {
+public class Home implements Initializable{
 
     @FXML
     private Label lbBiblioteca;
 
     @FXML
-    private ListView<?> lstLivros;
+    private ListView<Livro> lstLivros;
 
     @FXML
     private TextArea taDetalhes;
 
     @FXML
     private TextField tfProcureLivros;
+
+    private RepositorioLivro repositorio;
+    private Livro selecionado;
+
+    public Home(RepositorioLivro repositorio){
+        this.repositorio = repositorio;
+    }
+
+    @FXML
+    void exibirDetalhes(MouseEvent event) {
+        Livro livro = lstLivros.getSelectionModel().getSelectedItem();
+        if(livro != null){
+            taDetalhes.clear();
+            taDetalhes.appendText("Título: "+livro.getTitulo());
+            taDetalhes.appendText("\nAutor: "+livro.getAutor());
+            taDetalhes.appendText("\nGênero: "+livro.getGenero());
+            taDetalhes.appendText("\nDescrição: "+livro.getDescricao());
+            taDetalhes.appendText("\nContato para troca: "+livro.getContato());
+        }
+    }
 
     @FXML
     void abrirAutores(ActionEvent event) {
@@ -50,6 +83,23 @@ public class Home {
     @FXML
     void voltar(ActionEvent event) {
         App.pushScreen("PRINCIPAL");
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        
+        lstLivros.getItems().clear();
+        lstLivros.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        Resultado r = repositorio.listar();
+
+        if(r.foiSucesso()){
+            ArrayList<Livro> livros = (ArrayList)r.comoSucesso().getObj();
+            lstLivros.getItems().addAll(livros);
+        } else {
+            Alert alert = new Alert(AlertType.ERROR,r.getMsg());
+            alert.showAndWait();
+        }
+        
     }
 
 }

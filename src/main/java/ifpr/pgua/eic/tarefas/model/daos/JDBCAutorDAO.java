@@ -120,16 +120,10 @@ public class JDBCAutorDAO implements AutorDAO {
     }
 
     @Override
-    public Resultado excluir(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
-    }
-
-    @Override
     public Resultado buscarAutorLivro(int livroId) {
         try(Connection con = fabrica.getConnection()) {
 
-            PreparedStatement pstm = con.prepareStatement("SELECT autorId FROM livros WHERE id=?");
+            PreparedStatement pstm = con.prepareStatement("SELECT autorId FROM livros2 WHERE id=?");
 
             pstm.setInt(1, livroId);
 

@@ -39,6 +39,9 @@ public class CadastrarLivro implements Initializable{
     private TextField tfDescricao;
 
     @FXML
+    private TextField tfContato;
+
+    @FXML
     private Button btAcao;
 
     @FXML
@@ -67,19 +70,22 @@ public class CadastrarLivro implements Initializable{
         Autor autor = cbAutor.getValue();
         String genero = tfGenero.getText();
         String descricao = tfDescricao.getText();
+        String contato = tfContato.getText();
 
         Resultado msg;
         if(anterior == null){
-            msg = repositorio.cadastrarLivro(titulo, autor, genero, descricao);
+            msg = repositorio.cadastrarLivro(titulo, autor, genero, descricao, contato);
         } else {
-            msg = repositorio.alterarLivro(Integer.valueOf(id), titulo, autor, genero, descricao);
+            msg = repositorio.alterarLivro(Integer.valueOf(id), titulo, autor, genero, descricao, contato);
         }
 
         Alert alert = new Alert(AlertType.INFORMATION,msg.getMsg());
         alert.showAndWait();
 
-
-
+        tfTitulo.clear();
+        tfGenero.clear();
+        tfDescricao.clear();
+        tfContato.clear();
 
     }
 
@@ -105,6 +111,7 @@ public class CadastrarLivro implements Initializable{
             cbAutor.getItems().addAll(list);
             tfGenero.setText(anterior.getGenero());
             tfDescricao.setText(anterior.getDescricao());
+            tfContato.setText(anterior.getContato());
 
             btAcao.setText("ATUALIZAR");            
             label.setText("ATUALIZAR SEU LIVRO");

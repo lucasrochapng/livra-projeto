@@ -16,8 +16,6 @@ public interface AutorDAO {
 
     public Resultado atualizar(int id, Autor novo);
 
-    public Resultado excluir(int id);
-
 
     
 }

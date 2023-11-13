@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="telaEditLivro" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" stylesheets="@css/cadastrar_livro.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.CadastrarLivro">
+<VBox fx:id="telaEditLivro" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" spacing="10.0" stylesheets="@css/cadastrar_livro.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.CadastrarLivro">
    <padding>
       <Insets left="10.0" right="10.0" top="10.0" />
    </padding>
@@ -17,11 +17,12 @@
             <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#voltar" text="&lt;" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0" />
+      <HBox alignment="CENTER" prefHeight="9.0" prefWidth="280.0" />
       <TextField fx:id="tfId" stylesheets="@css/cadastrar_livro.css" />
       <TextField fx:id="tfTitulo" promptText="Título" />
       <ComboBox fx:id="cbAutor" prefHeight="25.0" prefWidth="294.0" promptText="Autor" />
       <TextField fx:id="tfGenero" promptText="Gênero" />
+      <TextField fx:id="tfContato" promptText="Contato" />
       <TextField fx:id="tfDescricao" alignment="TOP_LEFT" prefHeight="122.0" prefWidth="280.0" promptText="Descrição" />
       <Button fx:id="btAcao" mnemonicParsing="false" onAction="#cadastrarLivro" prefHeight="25.0" prefWidth="329.0" text="CADASTRAR LIVRO" />
    </children>

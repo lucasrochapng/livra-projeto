@@ -14,8 +14,8 @@ import ifpr.pgua.eic.tarefas.utils.DBUtils;
 
 public class JDBCLivroDAO implements LivroDAO{
 
-    private static final String INSERTSQL = "INSERT INTO livros(titulo, autorId, genero, descricao) values (?,?,?,?)";
-    private static final String SELECTSQL = "SELECT * FROM livros";
+    private static final String INSERTSQL = "INSERT INTO livros2(titulo, autorId, genero, descricao, contato) values (?,?,?,?,?)";
+    private static final String SELECTSQL = "SELECT * FROM livros2";
     private static final String SEARCHSQL = "SELECT * FROM livros WHERE id = ?";
 
     FabricaConexoes fabrica;
@@ -34,6 +34,7 @@ public class JDBCLivroDAO implements LivroDAO{
             pstm.setInt(2, livro.getAutor().getId());
             pstm.setString(3, livro.getGenero());
             pstm.setString(4, livro.getDescricao());
+            pstm.setString(5, livro.getContato());
 
             int ret = pstm.executeUpdate();
             if(ret == 1){
@@ -62,8 +63,9 @@ public class JDBCLivroDAO implements LivroDAO{
                 String titulo = rs.getString("titulo");
                 String genero = rs.getString("genero");
                 String descricao = rs.getString("descricao");
+                String contato = rs.getString("contato");
 
-                Livro livro = new Livro(id, titulo, null, genero, descricao);
+                Livro livro = new Livro(id, titulo, null, genero, descricao, contato);
                 livros.add(livro);
             }
             return Resultado.sucesso("Livros listados", livros);
@@ -103,7 +105,7 @@ public class JDBCLivroDAO implements LivroDAO{
     @Override
     public Resultado buscarPorId(int id) {
         try(Connection con = fabrica.getConnection()) {
-            PreparedStatement pstm = con.prepareStatement("SELECT * FROM livros WHERE id=?");
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM livros2 WHERE id=?");
             pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
 
@@ -111,8 +113,9 @@ public class JDBCLivroDAO implements LivroDAO{
                 String titulo = rs.getString("titulo");
                 String genero = rs.getString("genero");
                 String descricao = rs.getString("descricao");
+                String contato = rs.getString("contato");
 
-                Livro livro = new Livro(id, titulo, null, genero, descricao);
+                Livro livro = new Livro(id, titulo, null, genero, descricao, contato);
 
                 return Resultado.sucesso("Livros listados", livro);
             } else {
