@@ -18,5 +18,7 @@ public interface LivroDAO {
 
     public Resultado excluir(int id);
 
+    public Resultado buscarLivro(String titulo);
+
 
 }

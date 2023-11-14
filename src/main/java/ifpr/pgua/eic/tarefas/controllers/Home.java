@@ -2,13 +2,16 @@ package ifpr.pgua.eic.tarefas.controllers;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import com.github.hugoperlin.results.Resultado;
 
 import ifpr.pgua.eic.tarefas.App;
 import ifpr.pgua.eic.tarefas.model.entities.Livro;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioLivro;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,6 +37,8 @@ public class Home implements Initializable{
 
     @FXML
     private TextField tfProcureLivros;
+
+    private ObservableList<Livro> livrosObservableList;
 
     private RepositorioLivro repositorio;
     private Livro selecionado;
@@ -77,7 +82,24 @@ public class Home implements Initializable{
 
     @FXML
     void procurarLivro(ActionEvent event) {
+        String titulo = tfProcureLivros.getText();
+        if(!titulo.isEmpty()) {
+            
+            lstLivros.getItems().clear();
+            lstLivros.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            Resultado r = repositorio.buscarLivro(titulo);
 
+            if(r.foiSucesso()){
+                ArrayList<Livro> livros = (ArrayList)r.comoSucesso().getObj();
+                lstLivros.getItems().addAll(livros);
+            } else {
+                Alert alert = new Alert(AlertType.ERROR,r.getMsg());
+                alert.showAndWait();
+            }
+            
+        } else {
+            carregarTodosLivros();
+        }
     }
 
     @FXML
@@ -88,6 +110,11 @@ public class Home implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         
+        carregarTodosLivros();
+        
+    }
+
+    public void carregarTodosLivros(){
         lstLivros.getItems().clear();
         lstLivros.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         Resultado r = repositorio.listar();
@@ -99,7 +126,6 @@ public class Home implements Initializable{
             Alert alert = new Alert(AlertType.ERROR,r.getMsg());
             alert.showAndWait();
         }
-        
     }
 
 }

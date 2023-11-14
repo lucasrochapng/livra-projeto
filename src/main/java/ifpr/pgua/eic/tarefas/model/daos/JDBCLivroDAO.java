@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.github.hugoperlin.results.Resultado;
 
@@ -152,6 +153,57 @@ public class JDBCLivroDAO implements LivroDAO{
             return Resultado.erro(e.getMessage());
         }
     }
+
+    @Override
+    public Resultado buscarLivro(String titulo) {
+        
+        try(Connection con = fabrica.getConnection()){
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM livros2 WHERE titulo LIKE ?");
+
+            pstm.setString(1, "%" + titulo + "%");
+            ResultSet rs = pstm.executeQuery();
+
+            List<Livro> livros = new ArrayList<>();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String tituloLivro = rs.getString("titulo");
+                String genero = rs.getString("genero");
+                String descricao = rs.getString("descricao");
+                String contato = rs.getString("contato");
+
+                Livro livro = new Livro(id, tituloLivro, null, genero, descricao, contato);
+                livros.add(livro);
+            }
+            return Resultado.sucesso("Livros encontrados", livros);
+        } catch (SQLException e){
+            return Resultado.erro(e.getMessage());
+        }
+
+    }
+
+    /*
+    try(Connection con = fabrica.getConnection()){
+
+            PreparedStatement pstm = con.prepareStatement(SELECTSQL);
+            
+            ResultSet rs = pstm.executeQuery();
+
+            ArrayList<Livro> livros = new ArrayList<>();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String titulo = rs.getString("titulo");
+                String genero = rs.getString("genero");
+                String descricao = rs.getString("descricao");
+                String contato = rs.getString("contato");
+
+                Livro livro = new Livro(id, titulo, null, genero, descricao, contato);
+                livros.add(livro);
+            }
+            return Resultado.sucesso("Livros listados", livros);
+        } catch (Exception e) {
+            return Resultado.erro(e.getMessage());
+        }
+     */
 
     
     
