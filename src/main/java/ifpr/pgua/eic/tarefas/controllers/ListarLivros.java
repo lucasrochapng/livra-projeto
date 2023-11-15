@@ -8,8 +8,10 @@ import com.github.hugoperlin.results.Resultado;
 
 import ifpr.pgua.eic.tarefas.App;
 import ifpr.pgua.eic.tarefas.model.entities.Livro;
+import ifpr.pgua.eic.tarefas.model.entities.Usuario;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioAutor;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioLivro;
+import ifpr.pgua.eic.tarefas.model.repositories.RepositorioUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,12 +28,13 @@ public class ListarLivros implements Initializable{
 
     private RepositorioLivro repositorio;
     private RepositorioAutor repositorioAutor;
+    private RepositorioUsuario repositorioUsuario;
 
     private Livro selecionado;
 
-    public ListarLivros(RepositorioLivro repositorio){
+    public ListarLivros(RepositorioLivro repositorio, RepositorioUsuario repositorioUsuario){
         this.repositorio = repositorio;
-        
+        this.repositorioUsuario = repositorioUsuario;
     }
 
     @FXML
@@ -77,12 +80,25 @@ public class ListarLivros implements Initializable{
 
     }
 
+    
+    private Usuario logado;
+
+    @FXML
+    private void logado(){
+        logado = repositorioUsuario.contaLogada();
+    }
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         
+        //logado = repositorioUsuario.contaLogada();
+        //int ContatoLogado = logado.getTelefone();
+        int ContatoLogado = repositorioUsuario.contaLogada().getTelefone();
+        
         lstLivros.getItems().clear();
         lstLivros.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        Resultado r = repositorio.listar();
+        //Resultado r = repositorio.listar();
+        Resultado r = repositorio.listarPorContato(ContatoLogado+"");
 
         if(r.foiSucesso()){
             ArrayList<Livro> livros = (ArrayList)r.comoSucesso().getObj();

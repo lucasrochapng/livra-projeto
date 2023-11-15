@@ -65,7 +65,7 @@ public class App extends BaseAppNavigator {
         registraTela("LISTARAUTORES", new ScreenRegistryFXML(App.class, "listar_autores.fxml", o->new ListarAutores(repositorioAutor)));
 
         registraTela("CADASTRARLIVRO", new ScreenRegistryFXML(App.class,"cadastrar_livro.fxml",o->new CadastrarLivro(repositorioLivro, repositorioAutor)));                     
-        registraTela("LISTARLIVROS", new ScreenRegistryFXML(App.class,"listar_livros.fxml",o->new ListarLivros(repositorioLivro)));
+        registraTela("LISTARLIVROS", new ScreenRegistryFXML(App.class,"listar_livros.fxml",o->new ListarLivros(repositorioLivro, repositorioUsuario)));
 
         registraTela("EDITARUSUARIO", new ScreenRegistryFXML(App.class, "editar_usuario.fxml", o->new EditarUsuario(repositorioUsuario)));
         registraTela("EDITARDADOS", new ScreenRegistryFXML(App.class, "editar_dados.fxml", o->new EditarDados(repositorioUsuario)));

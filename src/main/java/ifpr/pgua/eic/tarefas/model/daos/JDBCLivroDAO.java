@@ -96,8 +96,8 @@ public class JDBCLivroDAO implements LivroDAO{
                 Livro livro = new Livro(id, titulo, null, genero, descricao, contatoLivro);
                 livros.add(livro);
             }
-            return Resultado.sucesso("Livros listados", livros);
-        } catch (Exception e){
+            return Resultado.sucesso("Livros do usuário logado listados", livros);
+        } catch (SQLException e){
             return Resultado.erro(e.getMessage());
         }
     }
@@ -181,29 +181,7 @@ public class JDBCLivroDAO implements LivroDAO{
 
     }
 
-    /*
-    try(Connection con = fabrica.getConnection()){
-
-            PreparedStatement pstm = con.prepareStatement(SELECTSQL);
-            
-            ResultSet rs = pstm.executeQuery();
-
-            ArrayList<Livro> livros = new ArrayList<>();
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String titulo = rs.getString("titulo");
-                String genero = rs.getString("genero");
-                String descricao = rs.getString("descricao");
-                String contato = rs.getString("contato");
-
-                Livro livro = new Livro(id, titulo, null, genero, descricao, contato);
-                livros.add(livro);
-            }
-            return Resultado.sucesso("Livros listados", livros);
-        } catch (Exception e) {
-            return Resultado.erro(e.getMessage());
-        }
-     */
+    
 
     
     

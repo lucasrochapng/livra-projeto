@@ -77,6 +77,24 @@ public class RepositorioLivro {
         return resultado;
     }
 
+    public Resultado listarPorContato(String contato){
+
+        Resultado resultado = dao.listarPorContato(contato);
+
+        if(resultado.foiSucesso()) {
+            List<Livro> lista = (List<Livro>) resultado.comoSucesso().getObj();
+
+            for(Livro livro : lista) {
+                Resultado r1 = montaLivro(livro);
+
+                if(r1.foiErro()){
+                    return r1;
+                }
+            }
+        }
+        return resultado;
+    }
+
     //buscar
     public Resultado buscarLivro(String titulo) {
         Resultado resultado = dao.buscarLivro(titulo);
@@ -94,7 +112,7 @@ public class RepositorioLivro {
         }
         return resultado;
     }
-    
+   
 
        
 }
