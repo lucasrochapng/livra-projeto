@@ -113,6 +113,10 @@ public class RepositorioLivro {
         return resultado;
     }
    
+    public Resultado excluirLivro(int id) {
+        Resultado resultado = dao.excluir(id);
+        return resultado;
+    }
 
        
 }

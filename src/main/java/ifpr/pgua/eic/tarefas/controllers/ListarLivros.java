@@ -77,7 +77,10 @@ public class ListarLivros implements Initializable{
 
     @FXML
     void deletarLivro(ActionEvent event) {
-
+        if(selecionado != null){
+            repositorio.excluirLivro(selecionado.getId());
+            lstLivros.getItems().remove(selecionado);
+        }
     }
 
     
@@ -91,8 +94,6 @@ public class ListarLivros implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         
-        //logado = repositorioUsuario.contaLogada();
-        //int ContatoLogado = logado.getTelefone();
         int ContatoLogado = repositorioUsuario.contaLogada().getTelefone();
         
         lstLivros.getItems().clear();

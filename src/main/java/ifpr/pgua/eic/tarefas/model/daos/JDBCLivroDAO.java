@@ -126,8 +126,21 @@ public class JDBCLivroDAO implements LivroDAO{
 
     @Override
     public Resultado excluir(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
+        try(Connection con = fabrica.getConnection()) {
+            PreparedStatement pstm = con.prepareStatement("DELETE FROM livros2 WHERE id=?");
+
+            pstm.setInt(1, id);
+
+            int ret = pstm.executeUpdate();
+            if(ret == 1){
+                return Resultado.sucesso("Livro excluido!", null);
+            } else {
+                return Resultado.erro("Livro não excluido");
+            }
+
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
     }
 
     @Override

@@ -75,7 +75,8 @@ public class CadastrarLivro implements Initializable{
         Resultado msg;
         if(anterior == null){
             msg = repositorio.cadastrarLivro(titulo, autor, genero, descricao, contato);
-        } else {
+        } 
+        else {
             msg = repositorio.alterarLivro(Integer.valueOf(id), titulo, autor, genero, descricao, contato);
         }
 
@@ -125,34 +126,6 @@ public class CadastrarLivro implements Initializable{
 
     }
 
-    /*
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        
-        Resultado r1 = repositorioAutor.listarAutor();
-
-        if(r1.foiSucesso()){
-            List<Autor> list = (List)r1.comoSucesso().getObj();
-            cbAutor.getItems().addAll(list);
-        } else {
-            Alert alert = new Alert(AlertType.ERROR,r1.getMsg());
-            alert.showAndWait();
-        }
-
-        if(anterior != null){
-            List<Autor> list = (List)r1.comoSucesso().getObj();
-            tfId.setText(anterior.getId()+"");
-            tfTitulo.setText(anterior.getTitulo());
-            cbAutor.getItems().addAll(list);
-            tfGenero.setText(anterior.getGenero());
-            tfDescricao.setText(anterior.getDescricao());
-
-            btAcao.setText("ATUALIZAR");            
-            label.setText("ATUALIZAR SEU LIVRO");
-        }
-        
-
-    }
-    */
+    
 
 }
