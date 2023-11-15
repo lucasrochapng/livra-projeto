@@ -94,12 +94,14 @@ public class ListarLivros implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         
-        int ContatoLogado = repositorioUsuario.contaLogada().getTelefone();
+        //int ContatoLogado = repositorioUsuario.contaLogada().getTelefone();
+        int UsuarioLogado = repositorioUsuario.contaLogada().getId();
         
         lstLivros.getItems().clear();
         lstLivros.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        //Resultado r = repositorio.listar();
-        Resultado r = repositorio.listarPorContato(ContatoLogado+"");
+        
+        //Resultado r = repositorio.listarPorContato(ContatoLogado+"");
+        Resultado r = repositorio.listarPorUsuario(UsuarioLogado);
 
         if(r.foiSucesso()){
             ArrayList<Livro> livros = (ArrayList)r.comoSucesso().getObj();

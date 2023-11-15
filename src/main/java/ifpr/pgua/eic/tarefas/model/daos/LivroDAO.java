@@ -10,7 +10,8 @@ public interface LivroDAO {
 
     public Resultado listar();
 
-    public Resultado listarPorContato(String contato);
+    //public Resultado listarPorContato(String contato);
+    public Resultado listarPorUsuario(int usuarioId);
 
     public Resultado buscarPorId(int id);
 

@@ -11,6 +11,7 @@ import java.util.List;
 import com.github.hugoperlin.results.Resultado;
 
 import ifpr.pgua.eic.tarefas.model.entities.Livro;
+import ifpr.pgua.eic.tarefas.model.entities.Usuario;
 import ifpr.pgua.eic.tarefas.utils.DBUtils;
 
 public class JDBCLivroDAO implements LivroDAO{
@@ -23,6 +24,11 @@ public class JDBCLivroDAO implements LivroDAO{
 
     public JDBCLivroDAO(FabricaConexoes fabrica) {
         this.fabrica = fabrica;
+    }
+
+    private UsuarioDAO usuarioDAO;
+    public void usuarioDAO(UsuarioDAO usuarioDAO){
+        this.usuarioDAO = usuarioDAO;
     }
 
     @Override
@@ -77,6 +83,41 @@ public class JDBCLivroDAO implements LivroDAO{
     }
 
     @Override
+    public Resultado listarPorUsuario(int usuarioId) {
+        try(Connection con = fabrica.getConnection()){
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM lv_livros WHERE usuarioId=?");
+
+            pstm.setInt(1, usuarioId);
+
+            ResultSet rs = pstm.executeQuery();
+
+            ArrayList<Livro> livros = new ArrayList<>();
+            while(rs.next()){
+                int id = rs.getInt("id");
+                String titulo = rs.getString("titulo");
+                String genero = rs.getString("genero");
+                String descricao = rs.getString("descricao");
+                String contato = rs.getString("contato");
+
+                Livro livro = new Livro(id, titulo, null, genero, descricao, contato, null);
+
+                // Resultado r1 = usuarioDAO.buscarUsuarioLivro(livro.getId());
+                // if(r1.foiErro()){
+                //     return r1;
+                // }
+                // Usuario usuario = (Usuario) r1.comoSucesso().getObj();
+                // livro.setUsuario(usuario);
+
+                livros.add(livro);
+            }
+            return Resultado.sucesso("Livros do usuário logado", livros);
+        } catch(SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
+    }
+
+    /*
+    @Override
     public Resultado listarPorContato(String contato) {
         try(Connection con = fabrica.getConnection()){
 
@@ -102,6 +143,7 @@ public class JDBCLivroDAO implements LivroDAO{
             return Resultado.erro(e.getMessage());
         }
     }
+    */
 
     @Override
     public Resultado atualizar(int id, Livro novo) {
