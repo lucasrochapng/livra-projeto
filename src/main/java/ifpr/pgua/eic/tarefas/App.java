@@ -34,7 +34,7 @@ public class App extends BaseAppNavigator {
     private RepositorioAutor repositorioAutor = new RepositorioAutor(autorDAO);
 
     private LivroDAO livroDAO = new JDBCLivroDAO(FabricaConexoes.getInstance());
-    private RepositorioLivro repositorioLivro = new RepositorioLivro(livroDAO, autorDAO);
+    private RepositorioLivro repositorioLivro = new RepositorioLivro(livroDAO, autorDAO, usuarioDAO);
     
     public static void main(String[] args) {
         launch();
@@ -64,7 +64,7 @@ public class App extends BaseAppNavigator {
         registraTela("CADASTRARAUTOR", new ScreenRegistryFXML(App.class, "cadastrar_autor.fxml", o->new CadastrarAutor(repositorioAutor)));
         registraTela("LISTARAUTORES", new ScreenRegistryFXML(App.class, "listar_autores.fxml", o->new ListarAutores(repositorioAutor)));
 
-        registraTela("CADASTRARLIVRO", new ScreenRegistryFXML(App.class,"cadastrar_livro.fxml",o->new CadastrarLivro(repositorioLivro, repositorioAutor)));                     
+        registraTela("CADASTRARLIVRO", new ScreenRegistryFXML(App.class,"cadastrar_livro.fxml",o->new CadastrarLivro(repositorioLivro, repositorioAutor, repositorioUsuario)));                     
         registraTela("LISTARLIVROS", new ScreenRegistryFXML(App.class,"listar_livros.fxml",o->new ListarLivros(repositorioLivro, repositorioUsuario)));
 
         registraTela("EDITARUSUARIO", new ScreenRegistryFXML(App.class, "editar_usuario.fxml", o->new EditarUsuario(repositorioUsuario)));

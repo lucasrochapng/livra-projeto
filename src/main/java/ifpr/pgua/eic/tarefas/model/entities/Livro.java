@@ -8,22 +8,25 @@ public class Livro {
     private String genero;
     private String descricao;
     private String contato;
+    private Usuario usuario;
 
-    public Livro(int id, String titulo, Autor autor, String genero, String descricao, String contato){
+    public Livro(int id, String titulo, Autor autor, String genero, String descricao, String contato, Usuario usuario){
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.descricao = descricao;
         this.contato = contato;
+        this.usuario = usuario;
     }
 
-    public Livro(String titulo, Autor autor, String genero, String descricao, String contato){
+    public Livro(String titulo, Autor autor, String genero, String descricao, String contato, Usuario usuario){
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.descricao = descricao;
         this.contato = contato;
+        this.usuario = usuario;
     }
 
     public int getId() {
@@ -67,6 +70,16 @@ public class Livro {
     public void setContato(String contato) {
         this.contato = contato;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    
 
     @Override
     public String toString() {

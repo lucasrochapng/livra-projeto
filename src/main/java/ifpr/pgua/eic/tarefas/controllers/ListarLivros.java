@@ -50,7 +50,7 @@ public class ListarLivros implements Initializable{
     @FXML
     private void editarLivro(){
         if(selecionado != null){
-            App.pushScreen("CADASTRARLIVRO", o->new CadastrarLivro(repositorio, repositorioAutor, selecionado));
+            App.pushScreen("CADASTRARLIVRO", o->new CadastrarLivro(repositorio, repositorioAutor, repositorioUsuario, selecionado));
         }
     }
 

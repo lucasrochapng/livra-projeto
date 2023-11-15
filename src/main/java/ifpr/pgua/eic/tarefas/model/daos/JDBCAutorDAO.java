@@ -123,7 +123,7 @@ public class JDBCAutorDAO implements AutorDAO {
     public Resultado buscarAutorLivro(int livroId) {
         try(Connection con = fabrica.getConnection()) {
 
-            PreparedStatement pstm = con.prepareStatement("SELECT autorId FROM livros2 WHERE id=?");
+            PreparedStatement pstm = con.prepareStatement("SELECT autorId FROM lv_livros WHERE id=?");
 
             pstm.setInt(1, livroId);
 

@@ -52,7 +52,8 @@ public class Home implements Initializable{
         Livro livro = lstLivros.getSelectionModel().getSelectedItem();
         if(livro != null){
             taDetalhes.clear();
-            taDetalhes.appendText("Título: "+livro.getTitulo());
+            taDetalhes.appendText("Dono: "+livro.getUsuario());
+            taDetalhes.appendText("\nTítulo: "+livro.getTitulo());
             taDetalhes.appendText("\nAutor: "+livro.getAutor());
             taDetalhes.appendText("\nGênero: "+livro.getGenero());
             taDetalhes.appendText("\nDescrição: "+livro.getDescricao());

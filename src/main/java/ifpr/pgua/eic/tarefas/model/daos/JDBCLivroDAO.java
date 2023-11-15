@@ -29,13 +29,14 @@ public class JDBCLivroDAO implements LivroDAO{
     public Resultado criar(Livro livro) {
         try(Connection con = fabrica.getConnection()) {
 
-            PreparedStatement pstm = con.prepareStatement(INSERTSQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement pstm = con.prepareStatement("INSERT INTO lv_livros(titulo, autorId, genero, descricao, contato, usuarioId) values (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
             pstm.setString(1, livro.getTitulo());
             pstm.setInt(2, livro.getAutor().getId());
             pstm.setString(3, livro.getGenero());
             pstm.setString(4, livro.getDescricao());
             pstm.setString(5, livro.getContato());
+            pstm.setInt(6, livro.getUsuario().getId());
 
             int ret = pstm.executeUpdate();
             if(ret == 1){
@@ -54,7 +55,7 @@ public class JDBCLivroDAO implements LivroDAO{
 
         try(Connection con = fabrica.getConnection()){
 
-            PreparedStatement pstm = con.prepareStatement(SELECTSQL);
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM lv_livros");
             
             ResultSet rs = pstm.executeQuery();
 
@@ -66,7 +67,7 @@ public class JDBCLivroDAO implements LivroDAO{
                 String descricao = rs.getString("descricao");
                 String contato = rs.getString("contato");
 
-                Livro livro = new Livro(id, titulo, null, genero, descricao, contato);
+                Livro livro = new Livro(id, titulo, null, genero, descricao, contato, null);
                 livros.add(livro);
             }
             return Resultado.sucesso("Livros listados", livros);
@@ -79,7 +80,7 @@ public class JDBCLivroDAO implements LivroDAO{
     public Resultado listarPorContato(String contato) {
         try(Connection con = fabrica.getConnection()){
 
-            PreparedStatement pstm = con.prepareStatement("SELECT * FROM livros2 WHERE contato=?");
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM lv_livros WHERE contato=?");
 
             pstm.setString(1, contato);
 
@@ -93,7 +94,7 @@ public class JDBCLivroDAO implements LivroDAO{
                 String descricao = rs.getString("descricao");
                 String contatoLivro = rs.getString("contato");
 
-                Livro livro = new Livro(id, titulo, null, genero, descricao, contatoLivro);
+                Livro livro = new Livro(id, titulo, null, genero, descricao, contatoLivro, null);
                 livros.add(livro);
             }
             return Resultado.sucesso("Livros do usuário logado listados", livros);
@@ -127,7 +128,7 @@ public class JDBCLivroDAO implements LivroDAO{
     @Override
     public Resultado excluir(int id) {
         try(Connection con = fabrica.getConnection()) {
-            PreparedStatement pstm = con.prepareStatement("DELETE FROM livros2 WHERE id=?");
+            PreparedStatement pstm = con.prepareStatement("DELETE FROM lv_livros WHERE id=?");
 
             pstm.setInt(1, id);
 
@@ -146,7 +147,7 @@ public class JDBCLivroDAO implements LivroDAO{
     @Override
     public Resultado buscarPorId(int id) {
         try(Connection con = fabrica.getConnection()) {
-            PreparedStatement pstm = con.prepareStatement("SELECT * FROM livros2 WHERE id=?");
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM lv_livros WHERE id=?");
             pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
 
@@ -156,7 +157,7 @@ public class JDBCLivroDAO implements LivroDAO{
                 String descricao = rs.getString("descricao");
                 String contato = rs.getString("contato");
 
-                Livro livro = new Livro(id, titulo, null, genero, descricao, contato);
+                Livro livro = new Livro(id, titulo, null, genero, descricao, contato, null);
 
                 return Resultado.sucesso("Livros listados", livro);
             } else {
@@ -171,7 +172,7 @@ public class JDBCLivroDAO implements LivroDAO{
     public Resultado buscarLivro(String titulo) {
         
         try(Connection con = fabrica.getConnection()){
-            PreparedStatement pstm = con.prepareStatement("SELECT * FROM livros2 WHERE titulo LIKE ?");
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM lv_livros WHERE titulo LIKE ?");
 
             pstm.setString(1, "%" + titulo + "%");
             ResultSet rs = pstm.executeQuery();
@@ -184,7 +185,7 @@ public class JDBCLivroDAO implements LivroDAO{
                 String descricao = rs.getString("descricao");
                 String contato = rs.getString("contato");
 
-                Livro livro = new Livro(id, tituloLivro, null, genero, descricao, contato);
+                Livro livro = new Livro(id, tituloLivro, null, genero, descricao, contato, null);
                 livros.add(livro);
             }
             return Resultado.sucesso("Livros encontrados", livros);

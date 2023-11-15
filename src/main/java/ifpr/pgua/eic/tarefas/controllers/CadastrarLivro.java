@@ -9,8 +9,10 @@ import com.github.hugoperlin.results.Resultado;
 import ifpr.pgua.eic.tarefas.App;
 import ifpr.pgua.eic.tarefas.model.entities.Autor;
 import ifpr.pgua.eic.tarefas.model.entities.Livro;
+import ifpr.pgua.eic.tarefas.model.entities.Usuario;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioAutor;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioLivro;
+import ifpr.pgua.eic.tarefas.model.repositories.RepositorioUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,6 +44,9 @@ public class CadastrarLivro implements Initializable{
     private TextField tfContato;
 
     @FXML
+    private TextField tfIdUsuario;
+
+    @FXML
     private Button btAcao;
 
     @FXML
@@ -49,16 +54,19 @@ public class CadastrarLivro implements Initializable{
 
     private RepositorioLivro repositorio;
     private RepositorioAutor repositorioAutor;
+    private RepositorioUsuario repositorioUsuario;
     private Livro anterior;
 
-    public CadastrarLivro(RepositorioLivro repositorio, RepositorioAutor repositorioAutor){
+    public CadastrarLivro(RepositorioLivro repositorio, RepositorioAutor repositorioAutor, RepositorioUsuario repositorioUsuario){
         this.repositorio = repositorio;
         this.repositorioAutor = repositorioAutor;
+        this.repositorioUsuario = repositorioUsuario;
     }
 
-    public CadastrarLivro(RepositorioLivro repositorio, RepositorioAutor repositorioAutor , Livro anterior){
+    public CadastrarLivro(RepositorioLivro repositorio, RepositorioAutor repositorioAutor, RepositorioUsuario repositorioUsuario, Livro anterior){
         this.repositorio = repositorio;
         this.repositorioAutor = repositorioAutor;
+        this.repositorioUsuario = repositorioUsuario;
         this.anterior = anterior;
     }
 
@@ -71,13 +79,15 @@ public class CadastrarLivro implements Initializable{
         String genero = tfGenero.getText();
         String descricao = tfDescricao.getText();
         String contato = tfContato.getText();
+        Usuario usuario = repositorioUsuario.contaLogada();
+
 
         Resultado msg;
         if(anterior == null){
-            msg = repositorio.cadastrarLivro(titulo, autor, genero, descricao, contato);
+            msg = repositorio.cadastrarLivro(titulo, autor, genero, descricao, contato, usuario);
         } 
         else {
-            msg = repositorio.alterarLivro(Integer.valueOf(id), titulo, autor, genero, descricao, contato);
+            msg = repositorio.alterarLivro(Integer.valueOf(id), titulo, autor, genero, descricao, contato, usuario);
         }
 
         Alert alert = new Alert(AlertType.INFORMATION,msg.getMsg());

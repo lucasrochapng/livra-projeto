@@ -145,6 +145,25 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
         }
     }
 
+    @Override
+    public Resultado buscarUsuarioLivro(int livroId) {
+        try(Connection con = fabrica.getConnection()) {
+            PreparedStatement pstm = con.prepareStatement("SELECT usuarioId FROM lv_livros WHERE id=?");
+
+            pstm.setInt(1, livroId);
+
+            ResultSet rs = pstm.executeQuery();
+            rs.next();
+            int usuarioId = rs.getInt("usuarioId");
+
+            return buscarPorId(usuarioId);
+        } catch (SQLException e) {
+            return Resultado.erro(e.getMessage());
+        }
+    }
+
+
+
    
 
 

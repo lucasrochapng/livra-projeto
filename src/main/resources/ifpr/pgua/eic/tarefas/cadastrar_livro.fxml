@@ -32,7 +32,8 @@
       <ComboBox fx:id="cbAutor" prefHeight="25.0" prefWidth="294.0" promptText="Autor" />
       <TextField fx:id="tfGenero" promptText="Gênero" />
       <TextField fx:id="tfContato" promptText="Contato" />
-      <TextField fx:id="tfDescricao" alignment="TOP_LEFT" prefHeight="122.0" prefWidth="280.0" promptText="Descrição" />
+      <TextField fx:id="tfDescricao" alignment="TOP_LEFT" prefHeight="86.0" prefWidth="280.0" promptText="Descrição" />
+      <TextField fx:id="tfIdUsuario" />
       <Button fx:id="btAcao" mnemonicParsing="false" onAction="#cadastrarLivro" prefHeight="25.0" prefWidth="329.0" text="CADASTRAR LIVRO" />
    </children>
 </VBox>
