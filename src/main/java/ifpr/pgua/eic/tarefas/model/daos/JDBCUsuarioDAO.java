@@ -138,7 +138,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 
                 return Resultado.sucesso("Bem vindo ao Livra!", usuario);
             }
-            return Resultado.erro("Credenciais inválidas");
+            return Resultado.erro("Nome de usuário ou senha incorretos. Por favor, tente novamente.");
 
         } catch (SQLException e) {
             return Resultado.erro(e.getMessage());

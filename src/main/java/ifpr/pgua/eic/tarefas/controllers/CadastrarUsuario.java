@@ -56,34 +56,6 @@ public class CadastrarUsuario implements Initializable{
         this.anterior = anterior;
     }
 
-    /*
-    @FXML
-    void registrar(ActionEvent event) {
-
-        String nome = tfNome.getText();
-        String nomeUsuario = tfNomeUsuario.getText();
-        String senha = pfSenha.getText();
-        int telefone = Integer.parseInt(tfWhatsapp.getText());
-        int idade = Integer.parseInt(tfIdade.getText());
-
-        Resultado resultado = repositorio.criarUsuario(nome, nomeUsuario, senha, telefone, idade);
-
-        Alert alert;
-        if(resultado.foiErro()){
-            alert = new Alert(AlertType.ERROR, resultado.getMsg());
-        } else {
-            alert = new Alert(AlertType.INFORMATION, resultado.getMsg());
-            tfNome.clear();
-            tfNomeUsuario.clear();
-            pfSenha.clear();
-            pfRepetirSenha.clear();
-            tfWhatsapp.clear();
-            tfIdade.clear();
-        }
-        alert.showAndWait();
-
-    } */
-
     @FXML
     void registrar(ActionEvent event) {
 
@@ -106,29 +78,15 @@ public class CadastrarUsuario implements Initializable{
 
         Alert alert = new Alert(AlertType.INFORMATION,msg.getMsg());
         alert.showAndWait();
+
+        tfNome.clear();
+        tfNomeUsuario.clear();
+        pfSenha.clear();
+        tfWhatsapp.clear();
+        tfIdade.clear();
+
+        App.pushScreen("PRINCIPAL");
     }
-
-    /*
-    void cadastrarAutor(ActionEvent event) {
-
-        String nome = tfNome.getText();
-        String id = tfId.getText();
-
-        Resultado msg;
-        if(anterior == null){
-            msg = repositorio.cadastrarAutor(nome);
-        }else{
-            msg = repositorio.alterarAutor(Integer.valueOf(id), nome);
-            if(msg.foiSucesso()){
-                anterior = null;
-            }
-        }
-        
-        Alert alert = new Alert(AlertType.INFORMATION,msg.getMsg());
-        alert.showAndWait();
-
-    }
-     */
   
     @FXML
     void voltar(ActionEvent event) {
@@ -148,15 +106,7 @@ public class CadastrarUsuario implements Initializable{
             btRegistrar.setText("ATUALIZAR");
             label.setText("ATUALIZE SEU PERFIL");
         }
-        /*
-        if(anterior != null){
-            tfId.setText(anterior.getId()+"");
-            tfNome.setText(anterior.getNome());
-
-            btAcao.setText("ATUALIZAR");
-            lbTexto.setText("ATUALIZE SEU AUTOR");
-        }
-         */
+        
     }
 
 }

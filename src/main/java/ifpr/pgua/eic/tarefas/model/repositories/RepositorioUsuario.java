@@ -23,23 +23,23 @@ public class RepositorioUsuario {
     public Resultado criarUsuario(String nome, String nomeUsuario, String senha, int telefone, int idade){
 
         if(nome.isEmpty() || nome.isBlank()){
-            return Resultado.erro("Nome inválido!");
+            return Resultado.erro("O nome não pode estar em branco!");
         }
 
         if(nomeUsuario.isEmpty() || nomeUsuario.isBlank()){
-            return Resultado.erro("Nome de usuário inválido!");
+            return Resultado.erro("O nome de usuário não pode estar em branco!");
         }
 
         if(senha.isEmpty() || senha.isBlank()){
-            return Resultado.erro("Senha inválida!");
+            return Resultado.erro("A senha não pode estar em branco!");
         }
 
-        if(telefone <= 0){
-            return Resultado.erro("Telefone inválido!");
+        if(telefone == 0){
+            return Resultado.erro("O telefone não pode estar em branco!");
         }
 
-        if(idade <= 17){
-            return Resultado.erro("Idade inválida!");
+        if(idade <= 17 || idade == 0){
+            return Resultado.erro("Usuários menores de idade não podem se registrar!");
         }
 
         Usuario usuario = new Usuario(nome, nomeUsuario, senha, telefone, idade);
@@ -53,8 +53,9 @@ public class RepositorioUsuario {
     }
 
     public Resultado login(String nomeUsuario, String senha){
+
         if(nomeUsuario.isEmpty() || nomeUsuario.isBlank()) {
-            return Resultado.erro("Nome Inválido!");
+            return Resultado.erro("Nome de Usuário Inválido!");
         }
         if(senha.isEmpty() || senha.isBlank()) {
             return Resultado.erro("Senha Inválida!");
@@ -76,20 +77,6 @@ public class RepositorioUsuario {
 
     
 
-
-
-
-
-
-
-
-
-
-
 }
 
-/*
-    public Resultado listarCategoria(){
-        return dao.listar();
-    }
- */
+
