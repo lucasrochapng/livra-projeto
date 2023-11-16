@@ -30,6 +30,11 @@ public class RepositorioAutor {
     }
 
     public Resultado alterarAutor(int id, String nome){
+
+        if(nome.isEmpty() || nome.isBlank()){
+            return Resultado.erro("Digite o nome do autor para realizar a atualização!");
+        }
+
         Autor novo = new Autor(id, nome);
 
         Resultado resultado = dao.atualizar(id, novo);
