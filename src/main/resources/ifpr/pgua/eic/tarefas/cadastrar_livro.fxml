@@ -27,13 +27,12 @@
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="9.0" prefWidth="280.0" />
-      <TextField fx:id="tfId" stylesheets="@css/cadastrar_livro.css" />
+      <TextField fx:id="tfId" prefHeight="47.0" prefWidth="280.0" stylesheets="@css/cadastrar_livro.css" />
       <TextField fx:id="tfTitulo" promptText="Título" />
       <ComboBox fx:id="cbAutor" prefHeight="25.0" prefWidth="294.0" promptText="Autor" />
       <TextField fx:id="tfGenero" promptText="Gênero" />
       <TextField fx:id="tfContato" promptText="Contato" />
       <TextField fx:id="tfDescricao" alignment="TOP_LEFT" prefHeight="86.0" prefWidth="280.0" promptText="Descrição" />
-      <TextField fx:id="tfIdUsuario" />
       <Button fx:id="btAcao" mnemonicParsing="false" onAction="#cadastrarLivro" prefHeight="25.0" prefWidth="329.0" text="CADASTRAR LIVRO" />
    </children>
 </VBox>

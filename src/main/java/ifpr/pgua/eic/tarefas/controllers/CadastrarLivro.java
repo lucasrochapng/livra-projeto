@@ -43,8 +43,8 @@ public class CadastrarLivro implements Initializable{
     @FXML
     private TextField tfContato;
 
-    @FXML
-    private TextField tfIdUsuario;
+    // @FXML
+    // private TextField tfIdUsuario;
 
     @FXML
     private Button btAcao;
