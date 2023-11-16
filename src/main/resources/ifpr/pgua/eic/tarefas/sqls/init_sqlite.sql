@@ -14,17 +14,6 @@ CREATE TABLE IF NOT EXISTS autores(
     PRIMARY KEY(id)
 );
 
-CREATE TABLE IF NOT EXISTS livros2(
-    id int AUTO_INCREMENT not null,
-    titulo varchar(255) not null,
-    autorId int not null,
-    genero varchar(255) not null,
-    descricao varchar(255) not null,
-    contato varchar(255) not null,
-    PRIMARY KEY(id),
-    foreign key(autorId) references autores(id)
-);
-
 -- ...
 CREATE TABLE IF NOT EXISTS lv_livros(
     id int AUTO_INCREMENT not null,
