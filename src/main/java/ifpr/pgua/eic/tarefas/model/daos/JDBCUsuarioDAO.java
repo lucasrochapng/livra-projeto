@@ -73,7 +73,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
             int ret = pstm.executeUpdate();
 
             if(ret == 1){
-                return Resultado.sucesso("Usuário atualizado", novo);
+                return Resultado.sucesso("Usuário atualizado com sucesso!", novo);
             }
             return Resultado.erro("Erro não identificado!");
 

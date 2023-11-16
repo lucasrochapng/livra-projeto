@@ -75,8 +75,7 @@ public class EditarUsuario implements Initializable{
 
     @FXML
     void editarUsuario(ActionEvent event) {
-        logado();
-        //logado = repositorioUsuario.contaLogada();
+        logado = repositorioUsuario.contaLogada();
         if(logado != null){
             App.pushScreen("CADASTRARUSUARIO", o->new CadastrarUsuario(repositorioUsuario, logado));
         }
@@ -88,10 +87,7 @@ public class EditarUsuario implements Initializable{
         App.pushScreen("LISTARAUTORES");
     }
 
-    @FXML
-    void abrirEditar(ActionEvent event) {
-        App.pushScreen("EDITARUSUARIO");
-    }
+
 
     @FXML
     void abrirHome(ActionEvent event) {

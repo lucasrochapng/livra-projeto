@@ -20,6 +20,10 @@ public class RepositorioAutor {
 
     public Resultado cadastrarAutor(String nome){
 
+        if(nome.isEmpty() || nome.isBlank()){
+            return Resultado.erro("Digite o nome do autor para realizar o cadastro!");
+        }
+
         Autor autor = new Autor(nome);
         Resultado resultado = dao.criar(autor);
         return resultado;

@@ -66,9 +66,6 @@ public class EditarDados implements Initializable{
         int telefone = Integer.parseInt(tfTelefone.getText());
         int idade = Integer.parseInt(tfIdade.getText());
 
-        //Usuario logado = repositorioUsuario.contaLogada();
-
-
         Resultado resultado = repositorioUsuario.alterarUsuario(id, nome, nomeUsuario, senha, telefone, idade);
 
         Alert alert;
