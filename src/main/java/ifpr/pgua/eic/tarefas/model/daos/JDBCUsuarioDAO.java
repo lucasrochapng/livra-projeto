@@ -75,12 +75,13 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
             if(ret == 1){
                 return Resultado.sucesso("Usuário atualizado com sucesso!", novo);
             }
-            return Resultado.erro("Erro não identificado!");
+            return Resultado.erro("Usuário não atualizado!");
 
         } catch (SQLException e) {
             return Resultado.erro(e.getMessage());
         }
     }
+
 
     
 

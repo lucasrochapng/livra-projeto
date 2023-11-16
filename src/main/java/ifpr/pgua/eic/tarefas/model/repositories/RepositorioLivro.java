@@ -28,6 +28,23 @@ public class RepositorioLivro {
     }
 
     public Resultado cadastrarLivro(String titulo, Autor autor, String genero, String descricao, String contato, Usuario usuario) {
+        
+        if(titulo.isEmpty() || titulo.isBlank()){
+            return Resultado.erro("Digite o título do livro para realizar o cadastro!");
+        }
+
+        if(genero.isEmpty() || genero.isBlank()){
+            return Resultado.erro("Digite o gênero do livro para realizar o cadastro!");
+        }
+
+        if(descricao.isEmpty() || descricao.isBlank()){
+            return Resultado.erro("Digite a descrição do livro para realizar o cadastro!");
+        }
+
+        if(contato.isEmpty() || contato.isBlank()){
+            return Resultado.erro("Digite o contato do livro para realizar o cadastro!");
+        }
+
         Livro livro = new Livro(titulo, autor, genero, descricao, contato, usuario);
         Resultado resultado = dao.criar(livro);
         return resultado;

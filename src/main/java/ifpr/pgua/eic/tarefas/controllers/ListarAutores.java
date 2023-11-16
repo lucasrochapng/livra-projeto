@@ -57,11 +57,6 @@ public class ListarAutores implements Initializable{
     }
 
     @FXML
-    void deletarAutor(ActionEvent event) {
-
-    }
-
-    @FXML
     private void selecionar(){
         selecionado = lstAutores.getSelectionModel().getSelectedItem();
     }
