@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="telaHome" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" stylesheets="@css/home.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.Home">
+<VBox fx:id="telaHome" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" stylesheets="@css/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.Home">
    <children>
       <HBox fx:id="barraSuperior" alignment="CENTER" prefHeight="34.0" prefWidth="300.0">
          <children>
@@ -44,7 +44,7 @@
          <children>
             <Label fx:id="label" text="LIVROS DISPONÍVEIS PARA TROCA" />
             <ListView fx:id="lstLivros" onMouseClicked="#exibirDetalhes" prefHeight="277.0" prefWidth="280.0" />
-            <TextArea fx:id="taDetalhes" editable="false" prefHeight="200.0" prefWidth="280.0" />
+            <TextArea fx:id="taDetalhes" editable="false" prefHeight="200.0" prefWidth="280.0" wrapText="true" />
          </children>
       </VBox>
       <HBox fx:id="barraMenu" alignment="CENTER" prefHeight="37.0" prefWidth="300.0" spacing="10.0">
