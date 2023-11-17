@@ -14,7 +14,6 @@ CREATE TABLE IF NOT EXISTS autores(
     PRIMARY KEY(id)
 );
 
--- ...
 CREATE TABLE IF NOT EXISTS lv_livros(
     id int AUTO_INCREMENT not null,
     titulo varchar(255) not null,
