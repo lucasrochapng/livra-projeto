@@ -69,7 +69,8 @@ public class CadastrarAutor implements Initializable{
 
     @FXML
     void voltar(ActionEvent event) {
-        App.popScreen();
+        //App.popScreen();
+        App.pushScreen("LISTARAUTORES");
     }
 
     @Override

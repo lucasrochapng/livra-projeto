@@ -102,7 +102,8 @@ public class CadastrarLivro implements Initializable{
 
     @FXML
     void voltar(ActionEvent event) {
-        App.popScreen();
+        //App.popScreen();
+        App.pushScreen("LISTARLIVROS");
     }
 
     @Override

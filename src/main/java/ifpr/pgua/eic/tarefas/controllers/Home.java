@@ -3,6 +3,7 @@ package ifpr.pgua.eic.tarefas.controllers;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -17,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -105,7 +107,11 @@ public class Home implements Initializable{
 
     @FXML
     void voltar(ActionEvent event) {
-        App.pushScreen("PRINCIPAL");
+        Alert alert = new Alert(AlertType.CONFIRMATION, "Deseja mesmo sair da sua conta?");
+        Optional<ButtonType> buttonType = alert.showAndWait();
+        if(buttonType.get().equals(ButtonType.OK)){
+            App.pushScreen("PRINCIPAL");
+        }
     }
 
     @Override

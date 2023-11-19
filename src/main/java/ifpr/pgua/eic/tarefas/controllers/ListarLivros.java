@@ -2,6 +2,7 @@ package ifpr.pgua.eic.tarefas.controllers;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.github.hugoperlin.results.Resultado;
@@ -16,6 +17,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -77,9 +80,13 @@ public class ListarLivros implements Initializable{
 
     @FXML
     void deletarLivro(ActionEvent event) {
+        Alert alert = new Alert(AlertType.CONFIRMATION, "Tem certeza que deseja deletar este livro?");
+        Optional<ButtonType> buttonType = alert.showAndWait();
+        if(buttonType.get().equals(ButtonType.OK)){
         if(selecionado != null){
             repositorio.excluirLivro(selecionado.getId());
             lstLivros.getItems().remove(selecionado);
+        }
         }
     }
 
