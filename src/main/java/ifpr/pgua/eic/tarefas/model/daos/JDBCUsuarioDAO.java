@@ -63,12 +63,12 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
         try(Connection con = fabrica.getConnection();) {
             PreparedStatement pstm = con.prepareStatement("UPDATE usuarios SET nome=?, nomeUsuario=?, senha=?, telefone=?, idade=? WHERE id=?");
 
-            pstm.setInt(1, id);
-            pstm.setString(2, novo.getNome());
-            pstm.setString(3, novo.getNomeUsuario());
-            pstm.setString(4, novo.getSenha());
-            pstm.setInt(5, novo.getTelefone());
-            pstm.setInt(6, novo.getIdade());
+            pstm.setString(1, novo.getNome());
+            pstm.setString(2, novo.getNomeUsuario());
+            pstm.setString(3, novo.getSenha());
+            pstm.setInt(4, novo.getTelefone());
+            pstm.setInt(5, novo.getIdade());
+            pstm.setInt(6, id);
 
             int ret = pstm.executeUpdate();
 
